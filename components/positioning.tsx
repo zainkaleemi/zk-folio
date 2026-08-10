@@ -3,7 +3,7 @@ import { SectionMarker } from '@/components/section-marker'
 
 export function Positioning() {
   return (
-    <section className="border-b border-border py-20 sm:py-28 lg:py-36">
+    <section className="border-b border-border py-16 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <SectionMarker index="00" label="Positioning" />
@@ -11,7 +11,7 @@ export function Positioning() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <Reveal delay={80}>
-            <h2 className="display max-w-2xl text-[clamp(2.6rem,5.5vw,4.75rem)]">
+            <h2 className="display max-w-2xl text-balance text-[clamp(2.2rem,11vw,4.75rem)] leading-[0.98] sm:leading-[0.92]">
               <span className="text-foreground">Designing.</span>
               <br />
               <span className="text-steel">Building.</span>

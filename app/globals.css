@@ -48,9 +48,15 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-wrap: anywhere;
+  }
+  img,
+  video {
+    max-width: 100%;
   }
 }
 
@@ -110,4 +116,148 @@
       transparent 1px
     );
   background-size: 48px 48px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Custom cursor                                                       */
+/* ------------------------------------------------------------------ */
+@media (pointer: fine) and (hover: hover) {
+  body.cursor-active,
+  body.cursor-active a,
+  body.cursor-active button,
+  body.cursor-active [role='button'],
+  body.cursor-active input,
+  body.cursor-active textarea,
+  body.cursor-active select {
+    cursor: none;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.2s ease, height 0.2s ease;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklch, var(--foreground) 35%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease, background-color 0.25s ease;
+  will-change: transform;
+}
+
+body.cursor-active .cursor-dot,
+body.cursor-active .cursor-ring {
+  opacity: 1;
+}
+
+.cursor-ring.is-hover {
+  width: 52px;
+  height: 52px;
+  border-color: color-mix(in oklch, var(--accent) 70%, transparent);
+  background: color-mix(in oklch, var(--accent) 10%, transparent);
+}
+
+.cursor-ring.is-down {
+  width: 26px;
+  height: 26px;
+  border-color: var(--accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Hover + micro animations                                            */
+/* ------------------------------------------------------------------ */
+
+/* Animated underline for text links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Card lift on hover */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease, border-color 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Image zoom wrapper */
+.media-zoom {
+  overflow: hidden;
+}
+.media-zoom img {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+.media-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Slow ambient float for accent marks */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.animate-float-soft {
+  animation: float-soft 4.5s ease-in-out infinite;
+}
+
+/* Subtle pulse ring for the status dot */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--accent) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px color-mix(in oklch, var(--accent) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--accent) 0%, transparent);
+  }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-soft,
+  .animate-pulse-ring {
+    animation: none !important;
+  }
 }

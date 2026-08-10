@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald, JetBrains_Mono } from 'next/font/google'
+import { Cursor } from '@/components/cursor'
 import './globals.css'
 
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${jetBrainsMono.variable} bg-background`}
     >
       <body className="antialiased">
+        <Cursor />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

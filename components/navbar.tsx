@@ -30,8 +30,8 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
-        <a href="#profile" className="flex items-center gap-4">
-          <span className="grid h-8 w-8 place-items-center border border-accent text-accent">
+        <a href="#profile" className="group flex items-center gap-4">
+          <span className="grid h-8 w-8 place-items-center border border-accent text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-accent-foreground group-hover:rotate-3">
             <span className="font-display text-sm font-bold leading-none">ZK</span>
           </span>
           <span className="mono-label hidden text-muted-foreground sm:inline">
@@ -44,7 +44,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="mono-label text-muted-foreground transition-colors hover:text-foreground"
+              className="mono-label link-underline text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
