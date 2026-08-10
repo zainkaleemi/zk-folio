@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Oswald, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -9,22 +9,30 @@ const inter = Inter({
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const oswald = Oswald({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  weight: ['500', '600', '700'],
+  variable: '--font-oswald',
+  display: 'swap',
+})
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono-jb',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Zain Kaleemi — Engineering Portfolio',
+  title: 'Mohammed Zainul Abedin Kaleemi — Engineering Portfolio',
   description:
-    'Engineering ideas into machines: mechanical design, robotics, embedded systems, electric mobility, and real-world prototyping.',
+    'Mechanical engineering shaped by robotics, precise mechanisms, and the discipline of making physical systems work. CAD, FEA, prototyping, and competition engineering.',
   generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#101014',
+  themeColor: '#141414',
 }
 
 export default function RootLayout({
@@ -35,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      className={`${inter.variable} ${oswald.variable} ${jetBrainsMono.variable} bg-background`}
     >
       <body className="antialiased">
         {children}

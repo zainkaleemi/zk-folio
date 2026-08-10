@@ -1,89 +1,108 @@
-import { EXTERNAL_LINK_PROPS, LINKEDIN_URL, PROJECT_URL } from '@/lib/links'
+import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
+import { Reveal } from '@/components/reveal'
+
+const META = [
+  'Hyderabad, India',
+  'Mechanical Engineering',
+  'MJCET / Osmania University',
+]
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="tech-grid pointer-events-none absolute inset-0 opacity-70" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-28 sm:px-8 sm:pt-36 lg:pb-24 lg:pt-40">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-6">
-            <div className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="h-px w-8 bg-accent" aria-hidden="true" />
-              Mechanical · Robotics · EV
+    <section
+      id="profile"
+      className="relative border-b border-border pt-28 pb-16 sm:pt-32 lg:pb-24"
+    >
+      <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-12">
+        <div>
+          <Reveal>
+            <div className="mb-8 flex items-center gap-3">
+              <span className="h-2 w-2 rounded-full bg-accent" aria-hidden />
+              <span className="mono-label text-muted-foreground">
+                Mechanical Design · Robotics · R&amp;D
+              </span>
             </div>
+          </Reveal>
 
-            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              Engineering Ideas Into Machines
-              <span className="text-accent">.</span>
+          <Reveal delay={80}>
+            <h1 className="display text-[clamp(2.9rem,7vw,6rem)]">
+              <span className="text-foreground">Mohammed Zainul</span>
+              <br />
+              <span className="text-steel">Abedin Kaleemi</span>
             </h1>
+          </Reveal>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              A hands-on engineering portfolio spanning mechanical design, robotics,
-              embedded systems, and electric mobility — carried from CAD concept through
-              fabrication and real-world prototyping.
+          <Reveal delay={160}>
+            <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+              Mechanical engineering shaped by robotics, precise mechanisms, and
+              the discipline of making physical systems work.
             </p>
+          </Reveal>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <Reveal delay={220}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2">
+              {META.map((item, i) => (
+                <span key={item} className="flex items-center gap-4">
+                  {i > 0 && (
+                    <span aria-hidden className="text-hairline">
+                      |
+                    </span>
+                  )}
+                  <span className="mono-label text-muted-foreground">{item}</span>
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={300}>
+            <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href={PROJECT_URL}
-                {...EXTERNAL_LINK_PROPS}
-                className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground transition-transform duration-200 hover:-translate-y-0.5"
+                href="#projects"
+                className="mono-label group inline-flex items-center gap-3 bg-accent px-6 py-4 text-accent-foreground transition-opacity hover:opacity-90"
               >
-                View Project
-                <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
-                  →
+                View Projects
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  ↗
                 </span>
               </a>
               <a
                 href={LINKEDIN_URL}
                 {...EXTERNAL_LINK_PROPS}
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-6 py-3.5 text-sm font-semibold transition-colors duration-200 hover:border-accent hover:text-accent"
+                className="mono-label group inline-flex items-center gap-3 border border-hairline px-6 py-4 text-foreground transition-colors hover:border-foreground"
               >
-                LinkedIn
+                Connect With Me
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  ↗
+                </span>
               </a>
             </div>
-
-            <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-8">
-              {[
-                { k: 'Discipline', v: 'Multidisciplinary' },
-                { k: 'Workflow', v: 'CAD → Build' },
-                { k: 'Focus', v: 'Real Hardware' },
-              ].map((item) => (
-                <div key={item.k}>
-                  <dt className="text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground">
-                    {item.k}
-                  </dt>
-                  <dd className="mt-1 font-display text-sm font-semibold sm:text-base">{item.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div className="lg:col-span-6">
-            <figure className="relative">
-              <div
-                className="absolute -inset-3 -z-10 rounded-xl bg-gradient-to-tr from-accent/10 via-transparent to-transparent"
-                aria-hidden="true"
-              />
-              <div className="overflow-hidden rounded-lg border border-border bg-surface">
-                <img
-                  src="/assets/kart-02.jpeg"
-                  alt="Custom-built electric go-kart with number 12 livery, exhaust and a helmet resting on the frame, photographed outdoors"
-                  className="h-full w-full object-cover"
-                  loading="eager"
-                />
-              </div>
-              <figcaption className="absolute bottom-3 left-3 rounded-md border border-border bg-background/80 px-3 py-1.5 text-xs font-medium tracking-wide backdrop-blur-sm">
-                <span className="text-accent">●</span> Electric Kart · Field Test
-              </figcaption>
-            </figure>
-          </div>
+          </Reveal>
         </div>
+
+        <Reveal delay={200} className="relative">
+          <figure className="relative">
+            <img
+              src="/assets/robotics.png"
+              alt="Three engineers standing behind a four-wheeled agricultural field robot with yellow articulated legs and exposed wiring"
+              className="aspect-[4/5] w-full border border-hairline object-cover"
+            />
+            <span className="mono-label pointer-events-none absolute left-4 top-4 text-[0.6rem] text-background">
+              Fig. 001 / Field Robot
+            </span>
+            <span className="mono-label pointer-events-none absolute right-4 top-4 text-[0.6rem] text-accent">
+              Mechanical System / S.A.F.L
+            </span>
+            <span className="mono-label pointer-events-none absolute bottom-4 left-4 text-[0.6rem] text-foreground">
+              Development Prototype / Agricultural Robotics
+            </span>
+          </figure>
+        </Reveal>
       </div>
     </section>
   )

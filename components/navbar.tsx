@@ -1,13 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
 
-const NAV_LINKS = [
+const NAV_ITEMS = [
+  { label: 'Profile', href: '#profile' },
+  { label: 'Focus', href: '#focus' },
+  { label: 'Teams', href: '#teams' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Engineering', href: '#engineering' },
-  { label: 'Robotics', href: '#robotics' },
-  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export function Navbar() {
@@ -15,7 +15,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -23,84 +23,70 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? 'border-b border-border bg-background/80 backdrop-blur-md'
-          : 'border-b border-transparent bg-transparent'
+          ? 'border-border bg-background/85 backdrop-blur-md'
+          : 'border-transparent bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a
-          href="#top"
-          className="flex items-center gap-2.5 font-display text-sm font-bold tracking-tight"
-        >
-          <span className="inline-block h-2 w-2 rotate-45 bg-accent" aria-hidden="true" />
-          <span>
-            ZAIN KALEEMI<span className="text-accent">.</span>
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
+        <a href="#profile" className="flex items-center gap-4">
+          <span className="grid h-8 w-8 place-items-center border border-accent text-accent">
+            <span className="font-display text-sm font-bold leading-none">ZK</span>
+          </span>
+          <span className="mono-label hidden text-muted-foreground sm:inline">
+            Engineering Portfolio
           </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
+        <nav className="hidden items-center gap-9 md:flex">
+          {NAV_ITEMS.map((item) => (
             <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              key={item.href}
+              href={item.href}
+              className="mono-label text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.label}
+              {item.label}
             </a>
           ))}
-          <a
-            href={LINKEDIN_URL}
-            {...EXTERNAL_LINK_PROPS}
-            className="rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-          >
-            LinkedIn
-          </a>
-        </div>
+        </nav>
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-border md:hidden"
+          className="flex h-9 w-9 items-center justify-center border border-hairline text-foreground md:hidden"
         >
-          <div className="flex flex-col gap-1.5">
+          <span className="relative block h-3 w-4">
             <span
-              className={`h-0.5 w-5 bg-foreground transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`}
+              className={`absolute left-0 h-0.5 w-4 bg-current transition-all ${open ? 'top-1.5 rotate-45' : 'top-0'}`}
             />
-            <span className={`h-0.5 w-5 bg-foreground transition-opacity ${open ? 'opacity-0' : ''}`} />
             <span
-              className={`h-0.5 w-5 bg-foreground transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`}
+              className={`absolute left-0 top-1.5 h-0.5 w-4 bg-current transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`}
             />
-          </div>
+            <span
+              className={`absolute left-0 h-0.5 w-4 bg-current transition-all ${open ? 'top-1.5 -rotate-45' : 'top-3'}`}
+            />
+          </span>
         </button>
-      </nav>
+      </div>
 
       {open && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-md md:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col px-5 py-4 sm:px-8">
-            {NAV_LINKS.map((link) => (
+        <nav className="border-t border-border bg-background/95 backdrop-blur-md md:hidden">
+          <div className="mx-auto flex max-w-[1600px] flex-col px-5 py-2 sm:px-8">
+            {NAV_ITEMS.map((item) => (
               <a
-                key={link.href}
-                href={link.href}
+                key={item.href}
+                href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="mono-label border-b border-border py-4 text-muted-foreground last:border-b-0 hover:text-foreground"
               >
-                {link.label}
+                {item.label}
               </a>
             ))}
-            <a
-              href={LINKEDIN_URL}
-              {...EXTERNAL_LINK_PROPS}
-              onClick={() => setOpen(false)}
-              className="mt-4 rounded-md border border-accent px-4 py-2.5 text-center text-sm font-medium text-accent"
-            >
-              LinkedIn
-            </a>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   )
