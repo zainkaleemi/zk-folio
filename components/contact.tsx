@@ -43,11 +43,11 @@ export function Contact() {
             <a
               href={LINKEDIN_URL}
               {...EXTERNAL_LINK_PROPS}
-              className="mono-label mt-8 inline-flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+              className="mono-label group mt-8 inline-flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
             >
               <span
                 aria-hidden
-                className="grid h-5 w-5 place-items-center border border-hairline text-[0.5rem]"
+                className="grid h-5 w-5 place-items-center border border-hairline text-[0.5rem] transition-colors group-hover:border-accent group-hover:text-accent"
               >
                 in
               </span>
@@ -77,9 +77,12 @@ export function Contact() {
           </span>
           <a
             href="#profile"
-            className="mono-label inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+            className="mono-label group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
           >
-            Back To Top <span aria-hidden>↑</span>
+            Back To Top{' '}
+            <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-1">
+              ↑
+            </span>
           </a>
         </div>
       </div>

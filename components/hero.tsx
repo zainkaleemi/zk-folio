@@ -17,7 +17,7 @@ export function Hero() {
         <div>
           <Reveal>
             <div className="mb-6 flex items-start gap-3 sm:mb-8 sm:items-center">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent sm:mt-0" aria-hidden />
+              <span className="animate-pulse-ring mt-1 h-2 w-2 shrink-0 rounded-full bg-accent sm:mt-0" aria-hidden />
               <span className="mono-label min-w-0 leading-relaxed text-muted-foreground">
                 Mechanical Design · Robotics · R&amp;D
               </span>
@@ -86,11 +86,11 @@ export function Hero() {
         </div>
 
         <Reveal delay={200} className="relative">
-          <figure className="relative">
+          <figure className="media-zoom group relative border border-hairline" data-cursor="hover">
             <img
               src="/assets/robotics.png"
               alt="Three engineers standing behind a four-wheeled agricultural field robot with yellow articulated legs and exposed wiring"
-              className="aspect-[4/5] w-full border border-hairline object-cover [filter:contrast(1.18)_saturate(1.08)]"
+              className="aspect-[4/5] w-full object-cover [filter:contrast(1.18)_saturate(1.08)]"
             />
             <span className="mono-label pointer-events-none absolute left-3 top-3 max-w-[calc(100%-1.5rem)] bg-background/75 px-2 py-1 text-[0.55rem] leading-relaxed text-foreground sm:left-4 sm:top-4 sm:text-[0.6rem]">
               Fig. 001 / Field Robot

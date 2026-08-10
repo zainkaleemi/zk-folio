@@ -84,9 +84,11 @@ export function EngineeringFocus() {
             <Reveal
               key={card.n}
               delay={(i % 3) * 80}
-              className="group min-w-0 border-b border-r border-hairline p-6 transition-colors hover:bg-surface sm:p-8 lg:p-10"
+              className="hover-lift group min-w-0 border-b border-r border-hairline p-6 hover:bg-surface sm:p-8 lg:p-10"
             >
-              <span className="mono-label text-accent">{card.n}</span>
+              <span className="mono-label inline-block text-accent transition-transform duration-300 group-hover:translate-x-1">
+                {card.n}
+              </span>
               <h3 className="display mt-8 text-2xl text-foreground">{card.title}</h3>
               <ul className="mt-6 space-y-3">
                 {card.items.map((item) => (
