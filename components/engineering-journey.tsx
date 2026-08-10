@@ -34,7 +34,7 @@ function MediaCaption({
 
 export function EngineeringJourney() {
   return (
-    <section id="teams" className="border-b border-border py-20 sm:py-28 lg:py-36">
+    <section id="teams" className="border-b border-border py-16 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <SectionMarker index="02" label="Engineering Journey" />
@@ -42,7 +42,7 @@ export function EngineeringJourney() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-20">
           <Reveal delay={80}>
-            <h2 className="display max-w-2xl text-[clamp(2.6rem,5.5vw,4.75rem)]">
+            <h2 className="display max-w-2xl text-balance text-[clamp(2.2rem,11vw,4.75rem)] leading-[0.98] sm:leading-[0.92]">
               <span className="text-foreground">Built with teams where</span>{' '}
               <span className="text-steel">constraints are real.</span>
             </h2>
@@ -57,15 +57,15 @@ export function EngineeringJourney() {
         </div>
 
         {/* Entry 01 — Team Robocon MJCET */}
-        <article className="mt-20 border-t border-hairline pt-12">
+        <article className="mt-14 border-t border-hairline pt-10 sm:mt-20 sm:pt-12">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
               <div>
-                <div className="flex items-baseline gap-6">
+                <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                   <span className="mono-label text-accent">01</span>
                   <span className="mono-label text-steel">ABU Robocon</span>
                 </div>
-                <h3 className="display mt-6 text-4xl text-foreground sm:text-5xl">
+                <h3 className="display mt-6 text-balance text-3xl leading-[1] text-foreground min-[380px]:text-4xl sm:text-5xl sm:leading-[0.92]">
                   Team Robocon MJCET
                 </h3>
               </div>
@@ -137,11 +137,11 @@ export function EngineeringJourney() {
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
               <div>
-                <div className="flex items-baseline gap-6">
+                <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                   <span className="mono-label text-accent">02</span>
                   <span className="mono-label text-steel">SAE Baja · MJCET</span>
                 </div>
-                <h3 className="display mt-6 text-4xl text-foreground sm:text-5xl">
+                <h3 className="display mt-6 text-balance text-3xl leading-[1] text-foreground min-[380px]:text-4xl sm:text-5xl sm:leading-[0.92]">
                   Team MudBrothers
                 </h3>
               </div>
@@ -167,11 +167,11 @@ export function EngineeringJourney() {
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
               <div>
-                <div className="flex items-baseline gap-6">
+                <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                   <span className="mono-label text-accent">03</span>
                   <span className="mono-label text-steel">Indian Karting Race 2025</span>
                 </div>
-                <h3 className="display mt-6 text-4xl text-foreground sm:text-5xl">
+                <h3 className="display mt-6 text-balance text-3xl leading-[1] text-foreground min-[380px]:text-4xl sm:text-5xl sm:leading-[0.92]">
                   Team Asphalt MJCET
                 </h3>
                 <span className="mono-label mt-6 inline-block bg-accent px-4 py-2 text-accent-foreground">

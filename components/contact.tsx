@@ -4,15 +4,15 @@ import { SectionMarker } from '@/components/section-marker'
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden pt-20 sm:pt-28 lg:pt-36">
+    <section id="contact" className="relative overflow-hidden pt-16 sm:pt-28 lg:pt-36">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <SectionMarker index="04" label="Contact" />
         </Reveal>
 
-        <div className="mt-12 grid gap-12 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:pb-32">
+        <div className="mt-10 grid gap-10 pb-20 sm:mt-12 sm:gap-12 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:pb-32">
           <Reveal delay={80}>
-            <h2 className="display text-[clamp(2.6rem,6vw,5rem)]">
+            <h2 className="display text-balance text-[clamp(2.2rem,11vw,5rem)] leading-[0.98] sm:leading-[0.92]">
               <span className="text-foreground">Technical work</span>
               <br />
               <span className="text-steel">starts with a conversation.</span>
@@ -27,9 +27,9 @@ export function Contact() {
 
             <a
               href={`mailto:${EMAIL}`}
-              className="group mt-10 flex max-w-md items-center justify-between border-b border-hairline pb-4 transition-colors hover:border-foreground"
+              className="group mt-10 flex max-w-md min-w-0 items-center gap-4 border-b border-hairline pb-4 transition-colors hover:border-foreground"
             >
-              <span className="font-display text-2xl text-foreground sm:text-3xl">
+              <span className="min-w-0 flex-1 break-all font-display text-xl text-foreground min-[380px]:text-2xl sm:text-3xl">
                 {EMAIL}
               </span>
               <span

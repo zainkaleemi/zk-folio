@@ -6,10 +6,10 @@ interface SectionMarkerProps {
 
 export function SectionMarker({ index, label, className = '' }: SectionMarkerProps) {
   return (
-    <div className={`flex items-center gap-4 ${className}`}>
-      <span className="mono-label text-steel">{index}</span>
-      <span className="mono-label text-accent">{label}</span>
-      <span aria-hidden className="h-px w-16 bg-hairline sm:w-28" />
+    <div className={`flex min-w-0 items-center gap-3 sm:gap-4 ${className}`}>
+      <span className="mono-label shrink-0 text-steel">{index}</span>
+      <span className="mono-label min-w-0 text-accent">{label}</span>
+      <span aria-hidden className="h-px min-w-4 flex-1 bg-hairline sm:max-w-28" />
     </div>
   )
 }

@@ -57,7 +57,7 @@ const CARDS = [
 
 export function EngineeringFocus() {
   return (
-    <section id="focus" className="border-b border-border py-20 sm:py-28 lg:py-36">
+    <section id="focus" className="border-b border-border py-16 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <SectionMarker index="01" label="Engineering Focus" />
@@ -65,7 +65,7 @@ export function EngineeringFocus() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
           <Reveal delay={80}>
-            <h2 className="display max-w-2xl text-[clamp(2.6rem,5.5vw,4.75rem)]">
+            <h2 className="display max-w-2xl text-balance text-[clamp(2.2rem,11vw,4.75rem)] leading-[0.98] sm:leading-[0.92]">
               <span className="text-foreground">From design intent</span>
               <br />
               <span className="text-steel">to working hardware.</span>
@@ -84,7 +84,7 @@ export function EngineeringFocus() {
             <Reveal
               key={card.n}
               delay={(i % 3) * 80}
-              className="group border-b border-r border-hairline p-8 transition-colors hover:bg-surface lg:p-10"
+              className="group min-w-0 border-b border-r border-hairline p-6 transition-colors hover:bg-surface sm:p-8 lg:p-10"
             >
               <span className="mono-label text-accent">{card.n}</span>
               <h3 className="display mt-8 text-2xl text-foreground">{card.title}</h3>
