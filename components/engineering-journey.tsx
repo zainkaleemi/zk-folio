@@ -210,13 +210,13 @@ export function EngineeringJourney() {
               <figure>
                 <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
                   <img
-                    src="/assets/kart-02.jpeg"
-                    alt="Three-quarter view of the number 12 go-kart with a helmet resting on the frame"
+                    src="/assets/award-ceremony.jpeg"
+                    alt="Student receiving a certificate and memento from faculty at the SAE MJCET Summit 2025 award ceremony"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
                 </div>
-                <MediaCaption primary="Kart / Detail View" />
+                <MediaCaption primary="SAE MJCET Summit 2025 / Award Recognition" />
               </figure>
               <figure>
                 <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
