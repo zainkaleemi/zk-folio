@@ -90,7 +90,7 @@ export function Hero() {
             <img
               src="/assets/robotics.png"
               alt="Three engineers standing behind a four-wheeled agricultural field robot with yellow articulated legs and exposed wiring"
-              className="aspect-[4/5] w-full border border-hairline object-cover"
+              className="aspect-[4/5] w-full border border-hairline object-cover [filter:contrast(1.18)_saturate(1.08)]"
             />
             <span className="mono-label pointer-events-none absolute left-3 top-3 max-w-[calc(100%-1.5rem)] bg-background/75 px-2 py-1 text-[0.55rem] leading-relaxed text-foreground sm:left-4 sm:top-4 sm:text-[0.6rem]">
               Fig. 001 / Field Robot
