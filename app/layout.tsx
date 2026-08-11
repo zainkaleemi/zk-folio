@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald, JetBrains_Mono } from 'next/font/google'
 import { Cursor } from '@/components/cursor'
+import { LightboxProvider } from '@/components/lightbox'
 import './globals.css'
 
 const inter = Inter({
@@ -48,7 +49,7 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <Cursor />
-        {children}
+        <LightboxProvider>{children}</LightboxProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
