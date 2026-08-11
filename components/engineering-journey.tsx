@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/reveal'
 import { SectionMarker } from '@/components/section-marker'
+import { MediaFrame } from '@/components/media-frame'
 
 function Tag({ children }: { children: string }) {
   return (
@@ -88,44 +89,72 @@ export function EngineeringJourney() {
           <Reveal delay={120} className="mt-10">
             <div className="grid gap-4 md:grid-cols-3">
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'video',
+                    src: '/assets/r1-demonstration.mp4',
+                    poster: '/assets/cad-01.jpeg',
+                    label: 'R1 Prototype Testing — Open Demonstration',
+                  }}
+                >
                   <video
                     className="h-full w-full object-cover"
-                    controls
+                    autoPlay
                     playsInline
                     muted
                     loop
-                    preload="metadata"
+                    preload="auto"
                   >
                     <source src="/assets/r1-demonstration.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <span className="mono-label pointer-events-none absolute left-3 top-3 rounded-sm bg-background/70 px-2 py-1 text-[0.55rem] text-foreground">
-                    CAM 1
+                  <span className="mono-label pointer-events-none absolute left-3 top-3 flex items-center gap-1.5 rounded-sm bg-background/70 px-2 py-1 text-[0.55rem] text-foreground backdrop-blur-sm">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/70" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                    </span>
+                    Live
                   </span>
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="R1 Prototype Testing" secondary="Open Demonstration" accent />
               </figure>
               <figure>
-                <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'image',
+                    src: '/assets/cad-01.jpeg',
+                    alt: 'CAD assembly render of the R1 robot with dual vertical lift columns and a manipulator over the competition field',
+                    label: 'R1 / CAD Assembly View',
+                  }}
+                >
                   <img
                     src="/assets/cad-01.jpeg"
                     alt="CAD assembly render of the R1 robot with dual vertical lift columns and a manipulator over the competition field"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="R1 / CAD Assembly View" />
               </figure>
               <figure>
-                <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'image',
+                    src: '/assets/cad-02.jpeg',
+                    alt: 'CAD assembly render of the R2 robot showing the drive base, roller wheels and structural framing',
+                    label: 'R2 / CAD Assembly View',
+                  }}
+                >
                   <img
                     src="/assets/cad-02.jpeg"
                     alt="CAD assembly render of the R2 robot showing the drive base, roller wheels and structural framing"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="R2 / CAD Assembly View" />
               </figure>
             </div>
@@ -197,36 +226,60 @@ export function EngineeringJourney() {
           <Reveal delay={120} className="mt-10">
             <div className="grid gap-4 md:grid-cols-3">
               <figure>
-                <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'image',
+                    src: '/assets/kart-01.jpeg',
+                    alt: 'Side profile of the number 12 electric go-kart parked outdoors on wet pavement',
+                    label: 'Team Asphalt / Kart Overview',
+                  }}
+                >
                   <img
                     src="/assets/kart-01.jpeg"
                     alt="Side profile of the number 12 electric go-kart parked outdoors on wet pavement"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="Team Asphalt / Kart Overview" />
               </figure>
               <figure>
-                <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'image',
+                    src: '/assets/award-ceremony.jpeg',
+                    alt: 'Student receiving a certificate and memento from faculty at the SAE MJCET Summit 2025 award ceremony',
+                    label: 'SAE MJCET Summit 2025 / Award Recognition',
+                  }}
+                >
                   <img
                     src="/assets/award-ceremony.jpeg"
                     alt="Student receiving a certificate and memento from faculty at the SAE MJCET Summit 2025 award ceremony"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-[center_20%]"
                     loading="lazy"
                   />
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="SAE MJCET Summit 2025 / Award Recognition" />
               </figure>
               <figure>
-                <div className="aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <MediaFrame
+                  className="aspect-[4/3] overflow-hidden border border-hairline bg-surface"
+                  media={{
+                    type: 'image',
+                    src: '/assets/team.jpeg',
+                    alt: 'Team Asphalt crew and mentors posed around the flame-liveried go-kart outdoors',
+                    label: 'Team Asphalt / Crew',
+                  }}
+                >
                   <img
                     src="/assets/team.jpeg"
                     alt="Team Asphalt crew and mentors posed around the flame-liveried go-kart outdoors"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </MediaFrame>
                 <MediaCaption primary="Team Asphalt / Crew" />
               </figure>
             </div>

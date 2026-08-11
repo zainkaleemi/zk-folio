@@ -2,6 +2,8 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald, JetBrains_Mono } from 'next/font/google'
 import { Cursor } from '@/components/cursor'
+import { LightboxProvider } from '@/components/lightbox'
+import { ScrollProgress } from '@/components/scroll-progress'
 import './globals.css'
 
 const inter = Inter({
@@ -25,9 +27,9 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Mohammed Zainul Abedin Kaleemi — Engineering Portfolio',
+  title: 'Zain Kaleemi — Engineering Portfolio',
   description:
-    'Mechanical engineering shaped by robotics, precise mechanisms, and the discipline of making physical systems work. CAD, FEA, prototyping, and competition engineering.',
+    'Engineering physical intelligence through precision mechanics and rigorous R&D. CAD, FEA, prototyping, and competition engineering.',
   generator: 'v0.app',
 }
 
@@ -47,8 +49,9 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${jetBrainsMono.variable} bg-background`}
     >
       <body className="antialiased">
+        <ScrollProgress />
         <Cursor />
-        {children}
+        <LightboxProvider>{children}</LightboxProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

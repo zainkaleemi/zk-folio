@@ -10,15 +10,22 @@ export function Positioning() {
         </Reveal>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-          <Reveal delay={80}>
-            <h2 className="display max-w-2xl text-balance text-[clamp(2.2rem,11vw,4.75rem)] leading-[0.98] sm:leading-[0.92]">
-              <span className="text-foreground">Designing.</span>
-              <br />
-              <span className="text-steel">Building.</span>
-              <br />
-              <span className="text-foreground">Testing. real-world systems.</span>
-            </h2>
-          </Reveal>
+          <div className="max-w-2xl">
+            <Reveal delay={80}>
+              <h2 className="display text-[clamp(2.2rem,11vw,4.75rem)] leading-[0.98] sm:leading-[0.92]">
+                <span className="block text-foreground">Designing.</span>
+                <span className="block text-steel">Building.</span>
+                <span className="block text-foreground">Testing.</span>
+              </h2>
+            </Reveal>
+
+            <Reveal delay={220}>
+              <p className="mt-5 flex items-center gap-3 font-display text-[clamp(1.2rem,4.5vw,2rem)] font-medium leading-snug text-accent sm:mt-6 sm:gap-4">
+                <span aria-hidden className="h-px w-8 shrink-0 bg-accent/50 sm:w-12" />
+                real-world systems.
+              </p>
+            </Reveal>
+          </div>
 
           <Reveal delay={160} className="lg:pt-3">
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">

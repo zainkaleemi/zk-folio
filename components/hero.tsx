@@ -1,5 +1,6 @@
 import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
 import { Reveal } from '@/components/reveal'
+import { MediaFrame } from '@/components/media-frame'
 
 const META = [
   'Hyderabad, India',
@@ -25,17 +26,16 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="display text-balance text-[clamp(2.35rem,12vw,6rem)] leading-[0.98] sm:leading-[0.92]">
-              <span className="text-foreground">Mohammed Zainul</span>
-              <br />
-              <span className="text-steel">Abedin Kaleemi</span>
+            <h1 className="display text-balance text-[clamp(2.35rem,12vw,6rem)] leading-[1.05] sm:leading-[0.98]">
+              <span className="block text-foreground">Zain</span>
+              <span className="text-shimmer block">Kaleemi</span>
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Mechanical engineering shaped by robotics, precise mechanisms, and
-              the discipline of making physical systems work.
+              Engineering physical intelligence through precision mechanics and
+              rigorous R&amp;D.
             </p>
           </Reveal>
 
@@ -86,7 +86,17 @@ export function Hero() {
         </div>
 
         <Reveal delay={200} className="relative">
-          <figure className="media-zoom group relative border border-hairline" data-cursor="hover">
+          <MediaFrame
+            className="media-zoom border border-hairline"
+            iconPosition="bottom-right"
+            desktopOnly
+            media={{
+              type: 'image',
+              src: '/assets/robotics.png',
+              alt: 'Three engineers standing behind a four-wheeled agricultural field robot with yellow articulated legs and exposed wiring',
+              label: 'Fig. 001 / Field Robot — Development Prototype / Agricultural Robotics',
+            }}
+          >
             <img
               src="/assets/robotics.png"
               alt="Three engineers standing behind a four-wheeled agricultural field robot with yellow articulated legs and exposed wiring"
@@ -101,7 +111,7 @@ export function Hero() {
             <span className="mono-label pointer-events-none absolute bottom-3 left-3 right-3 bg-background/75 px-2 py-1 text-[0.55rem] leading-relaxed text-foreground sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-[80%] sm:text-[0.6rem]">
               Development Prototype / Agricultural Robotics
             </span>
-          </figure>
+          </MediaFrame>
         </Reveal>
       </div>
     </section>
