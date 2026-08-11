@@ -27,7 +27,7 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Mohammed Zainul Abedin Kaleemi — Engineering Portfolio',
+  title: 'Zain Kaleemi — Engineering Portfolio',
   description:
     'Mechanical engineering shaped by robotics, precise mechanisms, and the discipline of making physical systems work. CAD, FEA, prototyping, and competition engineering.',
   generator: 'v0.app',
