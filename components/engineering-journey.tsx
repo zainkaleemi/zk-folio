@@ -88,20 +88,24 @@ export function EngineeringJourney() {
           <Reveal delay={120} className="mt-10">
             <div className="grid gap-4 md:grid-cols-3">
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden border border-hairline bg-surface">
+                <div className="group relative aspect-[4/3] overflow-hidden border border-hairline bg-surface">
                   <video
                     className="h-full w-full object-cover"
-                    controls
+                    autoPlay
                     playsInline
                     muted
                     loop
-                    preload="metadata"
+                    preload="auto"
                   >
                     <source src="/assets/r1-demonstration.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <span className="mono-label pointer-events-none absolute left-3 top-3 rounded-sm bg-background/70 px-2 py-1 text-[0.55rem] text-foreground">
-                    CAM 1
+                  <span className="mono-label pointer-events-none absolute left-3 top-3 flex items-center gap-1.5 rounded-sm bg-background/70 px-2 py-1 text-[0.55rem] text-foreground backdrop-blur-sm">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/70" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                    </span>
+                    Live
                   </span>
                 </div>
                 <MediaCaption primary="R1 Prototype Testing" secondary="Open Demonstration" accent />

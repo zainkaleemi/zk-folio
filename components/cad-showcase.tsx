@@ -49,21 +49,31 @@ export function CadShowcase() {
         </div>
 
         <Reveal className="mt-4">
-          <figure className="overflow-hidden rounded-lg border border-border bg-surface">
+          <figure className="group relative overflow-hidden rounded-lg border border-border bg-surface">
             <video
-              className="h-full w-full"
-              controls
+              className="h-full w-full object-cover"
+              autoPlay
               playsInline
               muted
               loop
-              preload="metadata"
+              preload="auto"
               poster="/assets/cad-01.jpeg"
             >
               <source src="/assets/r1-demonstration.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <figcaption className="border-t border-border px-4 py-3 text-xs uppercase tracking-[0.15em] text-muted-foreground">
-              Demonstration · Mechanism in motion
+
+            {/* subtle gradient for label legibility */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
+
+            <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center gap-2.5 px-4 py-3.5">
+              <span className="flex h-2 w-2 items-center justify-center">
+                <span className="absolute h-2 w-2 animate-ping rounded-full bg-accent/70" />
+                <span className="h-2 w-2 rounded-full bg-accent" />
+              </span>
+              <span className="text-xs font-medium uppercase tracking-[0.15em] text-foreground/90">
+                Live Demonstration · Mechanism in motion
+              </span>
             </figcaption>
           </figure>
         </Reveal>
