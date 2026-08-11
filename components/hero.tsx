@@ -34,8 +34,8 @@ export function Hero() {
 
           <Reveal delay={160}>
             <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Mechanical engineering shaped by robotics, precise mechanisms, and
-              the discipline of making physical systems work.
+              Engineering physical intelligence through precision mechanics and
+              rigorous R&amp;D.
             </p>
           </Reveal>
 
