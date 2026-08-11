@@ -26,10 +26,9 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="display text-balance text-[clamp(2.35rem,12vw,6rem)] leading-[0.98] sm:leading-[0.92]">
-              <span className="text-foreground">Mohammed Zainul</span>
-              <br />
-              <span className="text-steel">Abedin Kaleemi</span>
+            <h1 className="display text-balance text-[clamp(2.35rem,12vw,6rem)] leading-[1.05] sm:leading-[0.98]">
+              <span className="block text-foreground">Mohammed</span>
+              <span className="text-shimmer block">Zainul Abedin Kaleemi</span>
             </h1>
           </Reveal>
 
