@@ -212,7 +212,7 @@ export function EngineeringJourney() {
                   <img
                     src="/assets/award-ceremony.jpeg"
                     alt="Student receiving a certificate and memento from faculty at the SAE MJCET Summit 2025 award ceremony"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-[center_20%]"
                     loading="lazy"
                   />
                 </div>
