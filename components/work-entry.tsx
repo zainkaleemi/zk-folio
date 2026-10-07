@@ -58,70 +58,100 @@ function Details({ entry }: { entry: Entry }) {
   )
 }
 
-export function WorkEntry({ entry, index }: { entry: Entry; index: number }) {
-  const number = String(index + 1).padStart(2, '0')
-  const hasCad = Boolean(entry.cad?.length)
-  const flip = index % 2 === 1
-
+function Meta({ entry }: { entry: Entry }) {
   return (
-    <article id={entry.id} className="relative scroll-mt-24 border-t border-hairline pt-12 sm:pt-16">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      {[entry.kicker, entry.period, entry.location].filter(Boolean).map((m, i) => (
+        <span key={m} className="flex items-center gap-4">
+          {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-muted-foreground/50" />}
+          <span className={cn('mono-label', i === 0 ? 'text-accent' : 'text-muted-foreground')}>{m}</span>
+        </span>
+      ))}
+    </div>
+  )
+}
+
+/** Full chapter: header, text beside interactive CAD, then the media gallery. */
+export function WorkEntry({ entry, label }: { entry: Entry; label: string }) {
+  return (
+    <article id={entry.id} className="scroll-mt-24">
       <Reveal>
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <span className="mono-label text-accent">{entry.kicker}</span>
-          <span aria-hidden className="h-1 w-1 rounded-full bg-muted-foreground/50" />
-          <span className="mono-label text-muted-foreground">{entry.period}</span>
-          {entry.location && (
-            <>
-              <span aria-hidden className="h-1 w-1 rounded-full bg-muted-foreground/50" />
-              <span className="mono-label text-muted-foreground">{entry.location}</span>
-            </>
+        {entry.discipline && (
+          <p className="display mb-5 flex items-center gap-4 text-sm font-medium uppercase tracking-[0.3em] text-[var(--accent-2)]">
+            <span aria-hidden className="h-px w-10 bg-[var(--accent-2)]/60" />
+            {entry.discipline}
+          </p>
+        )}
+        <Meta entry={entry} />
+        <h3 className="display mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 text-balance text-[clamp(2.4rem,6vw,5rem)]">
+          {entry.title}
+          {entry.badge && (
+            <span className="rounded-full bg-accent px-4 py-1.5 font-mono text-sm font-medium tracking-[0.15em] text-accent-foreground">
+              {entry.badge}
+            </span>
           )}
-        </div>
-        <div className="mt-6 flex items-start gap-5 sm:gap-8">
-          <span aria-hidden className="display text-outline hidden text-[clamp(4rem,9vw,8rem)] leading-[0.8] sm:block">
-            {number}
-          </span>
-          <div className="min-w-0">
-            <h3 className="display flex flex-wrap items-center gap-x-5 gap-y-3 text-balance text-[clamp(2.2rem,5.5vw,4.5rem)]">
-              {entry.title}
-              {entry.badge && (
-                <span className="rounded-full bg-accent px-4 py-1.5 font-mono text-sm font-medium tracking-[0.15em] text-accent-foreground shadow-[0_0_40px_-6px_var(--accent)]">
-                  {entry.badge}
-                </span>
-              )}
-            </h3>
-            {entry.role && (
-              <p className="serif-accent mt-3 text-2xl text-[var(--accent-2)] sm:text-3xl">{entry.role}</p>
-            )}
-            {entry.roleNote && <p className="mono-label mt-3 text-[0.6rem] text-muted-foreground">{entry.roleNote}</p>}
-          </div>
-        </div>
+        </h3>
+        {entry.role && <p className="serif-accent mt-3 text-2xl text-[var(--accent-2)] sm:text-3xl">{entry.role}</p>}
+        {entry.roleNote && <p className="mono-label mt-3 text-[0.6rem] text-muted-foreground">{entry.roleNote}</p>}
+
+        {entry.facts && (
+          <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-3">
+            {entry.facts.map((f) => (
+              <div key={f.label} className="bg-background px-5 py-4">
+                <dt className="mono-label text-[0.55rem] text-muted-foreground">{f.label}</dt>
+                <dd className="mt-1.5 font-display text-lg text-foreground">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </Reveal>
 
-      {hasCad ? (
-        <div
-          className={cn(
-            'mt-12 grid gap-10 lg:gap-14',
-            flip ? 'lg:grid-cols-[1.2fr_0.8fr]' : 'lg:grid-cols-[0.8fr_1.2fr]',
-          )}
-        >
-          <Reveal className={cn('lg:pt-4', flip && 'lg:order-2')}>
-            <Details entry={entry} />
-          </Reveal>
-          <Reveal delay={120} className={cn(flip && 'lg:order-1')}>
-            <CadViewer models={entry.cad!} figure={`Fig. ${number} · Interactive CAD`} />
-          </Reveal>
-        </div>
-      ) : (
-        <Reveal className="mt-10 max-w-3xl">
+      <div className="mt-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+        <Reveal className="lg:pt-2">
           <Details entry={entry} />
         </Reveal>
-      )}
+        {entry.cad?.length ? (
+          <Reveal delay={120}>
+            <CadViewer models={entry.cad} figure={`${label} · Interactive CAD`} />
+          </Reveal>
+        ) : null}
+      </div>
 
       {entry.media && entry.media.length > 0 && (
         <Reveal delay={80} className="mt-10">
           <MediaGallery items={entry.media} />
         </Reveal>
+      )}
+    </article>
+  )
+}
+
+/** Compact card for secondary entries without CAD. */
+export function CompactEntry({ entry }: { entry: Entry }) {
+  return (
+    <article id={entry.id} className="edge-glow glass flex w-full scroll-mt-24 flex-col rounded-[1.5rem] p-6 sm:p-8">
+      <Meta entry={entry} />
+      <h3 className="display mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-3xl sm:text-4xl">
+        {entry.title}
+        {entry.badge && (
+          <span className="rounded-full bg-accent px-3 py-1 font-mono text-xs font-medium tracking-[0.15em] text-accent-foreground">
+            {entry.badge}
+          </span>
+        )}
+      </h3>
+      {entry.role && <p className="serif-accent mt-2 text-xl text-[var(--accent-2)]">{entry.role}</p>}
+      <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">{entry.summary}</p>
+      <div className="mt-6 flex flex-wrap gap-2">
+        {entry.tags.map((t) => (
+          <span key={t} className="rounded-full border border-hairline px-3 py-1 text-xs text-muted-foreground">
+            {t}
+          </span>
+        ))}
+      </div>
+      {entry.media && entry.media.length > 0 && (
+        <div className="mt-auto pt-6">
+          <MediaGallery items={entry.media.map((m) => ({ ...m, span: undefined }))} compact />
+        </div>
       )}
     </article>
   )

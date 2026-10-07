@@ -130,7 +130,7 @@ export function Hero() {
         <div className="z-10 order-2 flex flex-col justify-end pb-10 lg:order-1 lg:pb-24">
           <div className="animate-rise flex items-center gap-3" style={{ animationDelay: '0.3s' }}>
             <span className="animate-pulse-ring h-2 w-2 rounded-full bg-accent" aria-hidden />
-            <span className="mono-label text-muted-foreground">Hyderabad · Mechanical Engineering</span>
+            <span className="mono-label text-muted-foreground">Robotics · Automotive · R&amp;D</span>
           </div>
           <h1
             className="display animate-rise mt-5 text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.95]"
@@ -145,12 +145,12 @@ export function Hero() {
             className="animate-rise mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
             style={{ animationDelay: '0.5s' }}
           >
-            Mechanical Head at Team Robocon MJCET, vehicle designer for SAE BAJA, and researcher building field robots,
-            from CAD and FEA to the competition floor.
+            Mechanical Head at Team Robocon MJCET and Vehicle Design Engineer at Team MudBrothers (SAE BAJA). Robots and
+            race vehicles, from CAD and FEA to the competition floor.
           </p>
           <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: '0.6s' }}>
             <a
-              href="#work"
+              href="#teams"
               className="group inline-flex items-center gap-3 rounded-full bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition hover:bg-accent hover:text-accent-foreground"
             >
               Explore the work
@@ -212,9 +212,9 @@ export function Hero() {
         <div className="z-10 order-3 hidden flex-col items-end justify-end pb-24 text-right lg:flex">
           <dl className="animate-rise space-y-6" style={{ animationDelay: '0.7s' }}>
             {[
-              ['Currently', 'Mechanical Head · Robocon'],
+              ['Robotics', 'Mechanical Head · Team Robocon'],
+              ['Automotive', 'Vehicle Design · Team MudBrothers'],
               ['Studying', 'B.E. Mechanical · MJCET ’28'],
-              ['Toolkit', 'SolidWorks · FEA · Prototyping'],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="mono-label text-[0.6rem] text-accent">{k}</dt>

@@ -12,7 +12,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-[1600px] px-5 text-center sm:px-8 lg:px-12">
         <Reveal>
-          <p className="mono-label text-accent">05 · Contact</p>
+          <p className="mono-label text-accent">06 · Contact</p>
           <h2 className="display mx-auto mt-8 max-w-5xl text-balance text-[clamp(3rem,10vw,9rem)] leading-[0.88]">
             Let&apos;s build <span className="serif-accent text-gradient">something.</span>
           </h2>

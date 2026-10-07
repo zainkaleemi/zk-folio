@@ -1,16 +1,17 @@
+// Robotics and automotive terms alternate so neither side dominates.
 const ITEMS = [
+  'ABU Robocon',
+  'SAE BAJA',
+  'Mechanisms',
+  'Roll cage',
+  'Kinematics',
+  'Drivetrain',
+  'Robot structures',
+  'Vehicle dynamics',
   'SolidWorks',
   'FEA',
-  'Mechanism design',
-  'Rapid prototyping',
-  '3D printing',
   'Fabrication',
-  'Vehicle dynamics',
-  'Robotics',
-  'Jetson Nano',
-  'Raspberry Pi',
-  'AutoCAD',
-  'Field testing',
+  'Go-kart',
 ]
 
 export function Marquee() {

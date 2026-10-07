@@ -44,12 +44,19 @@ export type Entry = {
   tags: string[]
   badge?: string
   stats?: { value: string; label: string }[]
+  /** Short key facts shown as a row under the title (flagship teams). */
+  facts?: { label: string; value: string }[]
+  /** Flagship teams only: which side of the work this represents. */
+  discipline?: string
+  /** Flagship teams only: image for the overview card. */
+  cover?: string
   link?: { href: string; label: string }
   cad?: CadModel[]
   media?: MediaItem[]
 }
 
-export const EXPERIENCE: Entry[] = [
+// The two flagship teams. They get identical, equal-weight treatment everywhere.
+export const TEAMS: Entry[] = [
   {
     id: 'robocon',
     kicker: 'ABU Robocon',
@@ -58,6 +65,13 @@ export const EXPERIENCE: Entry[] = [
     roleNote: 'Promoted from Design Engineer → Senior Design Engineer',
     period: 'Nov 2024 — Present',
     location: 'MJCET, Hyderabad',
+    discipline: 'Robotics',
+    cover: '/assets/cad-01.jpeg',
+    facts: [
+      { label: 'Role', value: 'Mechanical Head' },
+      { label: 'Competition', value: 'ABU Robocon' },
+      { label: 'Focus', value: 'Mechanisms & robot structures' },
+    ],
     summary:
       'Leading the mechanical team behind the ABU Robocon robots, taking mechanisms from first sketch through CAD, prototyping, fabrication and assembly, and onto the competition field.',
     bullets: [
@@ -119,6 +133,13 @@ export const EXPERIENCE: Entry[] = [
     role: 'Vehicle Design Engineer',
     period: 'Mar 2026 — Present',
     location: 'MJCET, Hyderabad',
+    discipline: 'Automotive',
+    cover: '/assets/baja/zain-mudbrothers.webp',
+    facts: [
+      { label: 'Role', value: 'Vehicle Design Engineer' },
+      { label: 'Competition', value: 'SAE BAJA' },
+      { label: 'Focus', value: 'Roll cage & vehicle subsystems' },
+    ],
     summary:
       'Designing parts and assemblies for the team’s all-terrain SAE BAJA vehicle, where every decision trades weight against reliability and what the shop can actually build.',
     bullets: [
@@ -151,6 +172,10 @@ export const EXPERIENCE: Entry[] = [
       },
     ],
   },
+]
+
+// Secondary experience, shown as compact cards.
+export const MORE_EXPERIENCE: Entry[] = [
   {
     id: 'asphalt',
     kicker: 'IKR Go-Kart 2025',
@@ -289,7 +314,6 @@ export const AWARDS = [
 export const LEADERSHIP = [
   { role: 'Technical Head', org: 'Club Optimus MJCET', date: 'Sep 2026 — Present' },
   { role: 'Social Media Director', org: 'IEOM MJCET', date: 'Sep 2026 — Present' },
-  { role: 'Mechanical Head', org: 'Team Robocon MJCET', date: 'Nov 2024 — Present' },
 ]
 
 export const SKILLS = [

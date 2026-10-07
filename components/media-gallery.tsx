@@ -10,15 +10,18 @@ const SPAN: Record<NonNullable<MediaItem['span']>, string> = {
   big: 'sm:col-span-2 row-span-2',
 }
 
-export function MediaGallery({ items }: { items: MediaItem[] }) {
+export function MediaGallery({ items, compact = false }: { items: MediaItem[]; compact?: boolean }) {
   // Pick 3 or 4 desktop columns so the bento grid packs without holes.
   const cells = items.reduce((n, item) => n + (item.span ? CELLS[item.span] : 1), 0)
-  const columns = cells % 4 === 0 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+  const columns = compact ? 'lg:grid-cols-3' : cells % 4 === 0 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
 
   return (
     <div
       className={cn(
-        'grid grid-flow-row-dense auto-rows-[200px] grid-cols-1 gap-3 min-[480px]:grid-cols-2 sm:auto-rows-[220px] lg:gap-4',
+        'grid grid-flow-row-dense gap-3 lg:gap-4',
+        compact
+          ? 'auto-rows-[110px] grid-cols-3 sm:auto-rows-[150px]'
+          : 'auto-rows-[200px] grid-cols-1 min-[480px]:grid-cols-2 sm:auto-rows-[220px]',
         columns,
       )}
     >

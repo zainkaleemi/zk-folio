@@ -15,14 +15,14 @@ export function About() {
     <section id="about" className="relative scroll-mt-20 py-24 sm:py-32">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <SectionHeading
-          index="01"
-          eyebrow="About"
+          index="04"
+          eyebrow="Profile"
           title={
             <>
               Design. Build. Test. <span className="serif-accent text-gradient">Iterate.</span>
             </>
           }
-          intro="I'm a mechanical engineering student at MJCET who likes machines more when they leave the screen. Most of my time goes into competition robotics, off-road vehicles and field robots, where a design only counts once it survives fabrication and testing."
+          intro="I'm a mechanical engineering student at MJCET who likes machines more when they leave the screen. I care about robotics and automotive engineering equally, so my time is split between Robocon robots, an SAE BAJA off-road vehicle and field robots. A design only counts once it survives fabrication and testing."
         />
 
         <div className="mt-16 grid gap-px overflow-hidden rounded-[1.5rem] border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">

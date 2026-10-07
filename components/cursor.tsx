@@ -40,9 +40,7 @@ export function Cursor() {
       }
 
       const target = e.target as HTMLElement | null
-      const interactive = target?.closest(
-        'a, button, [role="button"], input, textarea, select, [data-cursor="hover"]',
-      )
+      const interactive = target?.closest('a, button, [role="button"], input, textarea, select, [data-cursor="hover"]')
       ring.classList.toggle('is-hover', Boolean(interactive))
       // Native grab cursor reads better than the custom one while orbiting CAD.
       document.body.classList.toggle('cursor-over-cad', Boolean(target?.closest('model-viewer')))

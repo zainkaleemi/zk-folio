@@ -8,7 +8,7 @@ export function Recognition() {
     <section id="recognition" className="relative scroll-mt-20 py-24 sm:py-32">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow="Awards & Leadership"
           title={
             <>
