@@ -1,33 +1,45 @@
 # zk-folio
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
-
-## Built with v0
-
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_dcyYIf40FJMCemwvz1HNoFvpI0RC)
-
-## Getting Started
-
-First, run the development server:
+Zain Kaleemi's engineering portfolio, built with Next.js 16, Tailwind CSS v4 and
+[`<model-viewer>`](https://modelviewer.dev) for the interactive CAD.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+pnpm install
+pnpm dev        # http://localhost:3000
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All the text, media and CAD lists live in **`lib/content.ts`**. Each experience or
+project entry has:
 
-## Learn More
+- `cad`: interactive 3D models shown next to the text (several models get tabs)
+- `media`: the photo/video gallery under the entry. `span: 'wide' | 'tall' | 'big'`
+  controls the tile size
 
-To learn more, take a look at the following resources:
+To add photos (for example more SAE BAJA media), put the files in
+`public/assets/baja/` and add a line to the `media` array of the `mudbrothers`
+entry. Prefer `.webp` or `.jpg` around 1600px wide; phone photos straight off the
+camera are 4–8 MB each and slow the page down.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+## Adding CAD models (and the 30 MB problem)
+
+SolidWorks `.glb` exports are big (10–15 MB each) because they store raw,
+uncompressed geometry. They hit GitHub's 25 MB upload limit quickly and make the page slow.
+Don't upload them as they are. Compress them first:
+
+1. Export the assembly from SolidWorks as `.glb`.
+2. Put the raw files in `cad-raw/` at the repo root (this folder is git-ignored).
+3. Run `pnpm models:optimize`.
+4. The compressed versions are written to `public/models/` with the same file name.
+   Commit those, then reference them from `lib/content.ts`, for example
+   `{ src: '/models/exoskeleton.glb', label: 'Exoskeleton', caption: '…' }`.
+
+This uses Draco compression plus very light mesh simplification. The current
+models went from about 50 MB in total to about 3.3 MB, with no visible
+difference. The Draco decoder is served from `public/draco/`, so the viewer has no
+third-party CDN dependency.
+
+If a single model is still huge after compression (for example a full assembly with
+fasteners), suppress hardware and tiny parts in SolidWorks before exporting.

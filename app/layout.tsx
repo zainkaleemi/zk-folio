@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Oswald, JetBrains_Mono } from 'next/font/google'
+import { Inter, Space_Grotesk, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Cursor } from '@/components/cursor'
 import { LightboxProvider } from '@/components/lightbox'
 import { ScrollProgress } from '@/components/scroll-progress'
@@ -12,10 +12,18 @@ const inter = Inter({
   display: 'swap',
 })
 
-const oswald = Oswald({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
-  variable: '--font-oswald',
+  variable: '--font-grotesk',
+  display: 'swap',
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['italic'],
+  variable: '--font-serif-is',
   display: 'swap',
 })
 
@@ -27,15 +35,21 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Zain Kaleemi — Engineering Portfolio',
+  metadataBase: new URL('https://zk-folio-ac.vercel.app'),
+  title: 'Zain Kaleemi — Mechanical Design & Robotics',
   description:
-    'Engineering physical intelligence through precision mechanics and rigorous R&D. CAD, FEA, prototyping, and competition engineering.',
-  generator: 'v0.app',
+    'Mechanical engineering portfolio of Zain Kaleemi: Mechanical Head at Team Robocon MJCET, SAE BAJA vehicle design, agricultural quadruped R&D and interactive CAD.',
+  openGraph: {
+    title: 'Zain Kaleemi — Mechanical Design & Robotics',
+    description: 'Robocon, SAE BAJA and R&D work, with interactive 3D CAD models.',
+    images: ['/assets/hero/zain-cutout.webp'],
+    type: 'website',
+  },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#141414',
+  themeColor: '#0b0c12',
 }
 
 export default function RootLayout({
@@ -46,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${oswald.variable} ${jetBrainsMono.variable} bg-background`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${instrumentSerif.variable} ${jetBrainsMono.variable} bg-background`}
     >
       <body className="antialiased">
         <ScrollProgress />
