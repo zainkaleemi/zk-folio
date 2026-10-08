@@ -335,7 +335,7 @@ export const LEADERSHIP = [
   { role: 'Social Media Director', org: 'IEOM MJCET', date: 'Sep 2026 — Present' },
 ]
 
-// Mirrors the Skills section of the résumé. Icon keys map to logos in components/toolkit.tsx.
+// Mirrors the Skills section of the résumé. Icon keys map to logos in components/sections/toolkit.tsx.
 export const SKILLS = [
   {
     group: 'CAD & Analysis',
@@ -343,6 +343,7 @@ export const SKILLS = [
       { name: 'SolidWorks (CSWP)', icon: 'solidworks' },
       { name: 'AutoCAD', icon: 'autocad' },
       { name: 'FEA', icon: 'fea' },
+      { name: 'Ansys Workbench', icon: 'ansys' },
     ],
   },
   {
@@ -351,20 +352,28 @@ export const SKILLS = [
       { name: '3D Printing (PLA/PETG)', icon: 'printing' },
       { name: 'Mechanical Assembly', icon: 'assembly' },
       { name: 'Rapid Prototyping', icon: 'prototyping' },
+      { name: 'CNC', icon: 'cnc' },
       { name: 'Linux (Arch)', icon: 'archlinux' },
     ],
   },
   {
     group: 'Beginner level',
     items: [
-      { name: 'Ansys Workbench', icon: 'ansys' },
       { name: 'Git', icon: 'git' },
       { name: 'Jetson Nano', icon: 'nvidia' },
       { name: 'RealSense D435', icon: 'intel' },
       { name: 'Raspberry Pi', icon: 'raspberrypi' },
       { name: 'Arduino', icon: 'arduino' },
       { name: 'Servo Control', icon: 'servo' },
-      { name: 'CNC', icon: 'cnc' },
+    ],
+  },
+  {
+    group: 'Software & Media',
+    items: [
+      { name: 'Claude Code', icon: 'claude' },
+      { name: 'Vibe Coding', icon: 'vibecoding' },
+      { name: 'DaVinci Resolve', icon: 'davinci' },
+      { name: 'Adobe Premiere Pro', icon: 'premiere' },
     ],
   },
 ]
