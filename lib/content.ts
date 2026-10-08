@@ -44,6 +44,8 @@ export type Entry = {
   period: string
   location?: string
   summary: string
+  /** Optional background note shown under the summary, e.g. programme or funding context. */
+  context?: string
   bullets: string[]
   tags: string[]
   badge?: string
@@ -68,7 +70,7 @@ export const TEAMS: Entry[] = [
     kicker: 'ABU Robocon',
     title: 'Team Robocon MJCET',
     role: 'Mechanical Head',
-    roleNote: 'Promoted from Design Engineer → Senior Design Engineer',
+    roleNote: 'Promoted twice: Design Engineer → Senior Design Engineer → Mechanical Head',
     period: 'Nov 2024 — Present',
     location: 'MJCET, Hyderabad',
     discipline: 'Robotics',
@@ -78,18 +80,19 @@ export const TEAMS: Entry[] = [
       { label: 'Competition', value: 'ABU Robocon' },
       { label: 'Focus', value: 'Mechanisms & robot structures' },
     ],
-    summary: 'Leading the mechanical team behind our ABU Robocon robots, from first sketch to the competition field.',
+    summary:
+      'I lead the mechanical side of our ABU Robocon robots: what the mechanisms are, how they get built, and whether they survive the arena.',
     bullets: [
-      'Mechanism design for kinematics, strength, weight and reliability, iterated through testing.',
-      'Prototyping, fabrication and assembly of the robots.',
-      '3D CAD and drawings; integration with the electrical and programming teams.',
+      'Mechanisms designed for kinematics, strength, weight and reliability, then refined through test runs.',
+      'Robots taken from CAD and drawings through fabrication and assembly.',
+      'Integration with the electrical and programming teams, so the robot works as one machine.',
     ],
     tags: ['Mechanism design', 'SolidWorks', 'Prototyping', 'Fabrication', 'Integration'],
     cad: [
       {
         src: '/models/robocon-r1.glb',
         label: 'R1 · ABU Robocon 2026',
-        caption: 'Full R1 robot assembly with twin vertical lifts and manipulator',
+        caption: 'R1: twin vertical lifts and a manipulator on an octagonal omni-wheel base',
       },
       {
         src: '/models/robocon-prototype.glb',
@@ -145,18 +148,19 @@ export const TEAMS: Entry[] = [
       { label: 'Competition', value: 'SAE BAJA' },
       { label: 'Focus', value: 'Roll cage & vehicle subsystems' },
     ],
-    summary: 'Designing parts and assemblies for our all-terrain SAE BAJA vehicle, from CAD to the dirt track.',
+    summary:
+      'I design parts and assemblies for our SAE BAJA buggy, a single-seat off-road vehicle built to take jumps, rocks and mud.',
     bullets: [
-      'Subsystem design and integration, balancing weight, reliability and manufacturability.',
-      'Design revisions with the manufacturing and testing teams.',
-      'Hands-on fabrication, assembly and testing of the vehicle.',
+      'Subsystem design and integration, trading weight against strength and what the shop can fabricate.',
+      'Design revisions driven by feedback from manufacturing and testing.',
+      'On the shop floor for fabrication, assembly and test runs.',
     ],
     tags: ['Vehicle design', 'Roll cage', 'Subsystems', 'DFM', 'Testing'],
     cad: [
       {
         src: '/models/sae-baja.glb',
         label: 'BAJA vehicle',
-        caption: 'Roll cage with engine and drivetrain packaging',
+        caption: 'Roll cage with engine and drivetrain packaged inside',
       },
     ],
     media: [
@@ -200,7 +204,7 @@ export const ASPHALT: Entry = {
   period: '2025',
   location: 'Indian Karting Race',
   badge: 'AIR 10',
-  summary: 'Go-kart build with the team that finished All India Rank 10 at the Indian Karting Race 2025.',
+  summary: 'Built and raced a go-kart with Team Asphalt, finishing All India Rank 10 at the Indian Karting Race 2025.',
   bullets: [],
   tags: ['Automotive', 'Competition', 'Fabrication', 'Teamwork'],
   media: [
@@ -235,7 +239,8 @@ export const RESEARCH: Entry[] = [
     title: 'S.A.F.L.',
     role: 'Smart Agri Four-Legged Bot · Undergraduate Researcher',
     period: 'Nov 2025 — Present',
-    summary: 'A semi-autonomous agricultural quadruped for weed detection and in-situ soil monitoring.',
+    summary:
+      'A semi-autonomous four-legged robot that finds weeds and measures soil health in the field, so farmers don’t have to walk every row.',
     bullets: [
       'Mechanical design: CAD assemblies, reinforced steel chassis and articulated legs.',
       'FEA in SolidWorks on critical components, validated to a minimum safety factor of 2.04.',
@@ -250,7 +255,7 @@ export const RESEARCH: Entry[] = [
     ],
     link: {
       href: 'https://onerealti.github.io/astro-safl/',
-      label: 'Engineering documentation',
+      label: 'Read the full engineering documentation',
     },
     cad: [
       {
@@ -280,9 +285,11 @@ export const RESEARCH: Entry[] = [
     id: 'exoskeleton',
     kicker: 'YUKTI Innovation Challenge',
     title: 'Wearable Exoskeleton',
-    role: 'R&D project',
+    role: 'Mechanical integration',
     period: 'Nov 2025 — Present',
-    summary: 'A wearable, cable-driven assist that reduces strain and fatigue during manual work.',
+    summary: 'A wearable, cable-driven assist that takes strain and fatigue out of repetitive manual work.',
+    context:
+      'Supported under the YUKTI Innovation Challenge, a national programme by the Ministry of Education’s Innovation Cell (MIC) and AICTE that identifies, mentors and funds student-led prototypes.',
     bullets: [
       'Mechanical integration and assembly: Dyneema cable, high-torque servos and 3D-printed parts.',
       'Servo control from a headless Raspberry Pi with a Bus Servo Driver HAT.',

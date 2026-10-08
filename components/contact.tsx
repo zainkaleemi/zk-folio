@@ -17,7 +17,7 @@ export function Contact() {
             Let&apos;s build <span className="serif-accent text-gradient">something.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Open to internships, research collaborations and anything with a mechanism in it.
+            Open to internships, research collaborations and anything with moving parts.
           </p>
         </Reveal>
 

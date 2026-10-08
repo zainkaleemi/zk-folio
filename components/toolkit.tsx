@@ -63,10 +63,10 @@ export function Toolkit() {
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
         <SectionHeading
           index="04"
-          eyebrow="Toolkit"
+          eyebrow="Skills"
           title={
             <>
-              Skills &amp; <span className="serif-accent text-gradient">tools.</span>
+              What I <span className="serif-accent text-gradient">work with.</span>
             </>
           }
         />

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, BookOpen } from 'lucide-react'
 import type { Entry } from '@/lib/content'
 import { EXTERNAL_LINK_PROPS } from '@/lib/links'
 import { CadViewer } from '@/components/cad-viewer'
@@ -10,6 +10,12 @@ function Details({ entry }: { entry: Entry }) {
   return (
     <div>
       <p className="text-pretty text-lg leading-relaxed text-foreground/90 sm:text-xl">{entry.summary}</p>
+
+      {entry.context && (
+        <p className="mt-6 border-l-2 border-accent/70 pl-4 text-sm leading-relaxed text-muted-foreground">
+          {entry.context}
+        </p>
+      )}
 
       {entry.bullets.length > 0 && (
         <ul className="mt-8 space-y-4">
@@ -33,6 +39,33 @@ function Details({ entry }: { entry: Entry }) {
         </dl>
       )}
 
+      {entry.link && (
+        <a
+          href={entry.link.href}
+          {...EXTERNAL_LINK_PROPS}
+          className="group relative mt-10 flex items-center justify-between gap-5 overflow-hidden rounded-2xl bg-accent p-5 text-accent-foreground shadow-[0_18px_60px_-18px_var(--accent)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_70px_-14px_var(--accent)] sm:p-6"
+        >
+          <span
+            aria-hidden
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+          />
+          <span className="relative flex items-center gap-4">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent-foreground/10">
+              <BookOpen className="h-6 w-6" strokeWidth={1.75} />
+            </span>
+            <span>
+              <span className="block font-display text-lg font-semibold leading-tight sm:text-xl">
+                {entry.link.label}
+              </span>
+              <span className="mt-1 block text-sm opacity-75">{new URL(entry.link.href).hostname}</span>
+            </span>
+          </span>
+          <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent-foreground text-accent transition-transform duration-300 group-hover:rotate-45">
+            <ArrowUpRight className="h-5 w-5" />
+          </span>
+        </a>
+      )}
+
       <div className="mt-8 flex flex-wrap gap-2">
         {entry.tags.map((t) => (
           <span
@@ -50,16 +83,6 @@ function Details({ entry }: { entry: Entry }) {
         </figure>
       )}
 
-      {entry.link && (
-        <a
-          href={entry.link.href}
-          {...EXTERNAL_LINK_PROPS}
-          className="group mt-10 inline-flex items-center gap-3 rounded-full border border-accent/60 px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground"
-        >
-          {entry.link.label}
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
-        </a>
-      )}
     </div>
   )
 }

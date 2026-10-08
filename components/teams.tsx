@@ -14,10 +14,10 @@ export function Teams() {
           eyebrow="Competition teams"
           title={
             <>
-              Robots and race vehicles, <span className="serif-accent text-gradient">equally.</span>
+              Built to <span className="serif-accent text-gradient">compete.</span>
             </>
           }
-          intro="Every model below is the real assembly. Drag it to look around."
+          intro="ABU Robocon, the Asia-Pacific robotics contest, and SAE BAJA, where student teams design, build and race an off-road vehicle. Two very different machines, the same unforgiving deadline."
         />
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:gap-6">

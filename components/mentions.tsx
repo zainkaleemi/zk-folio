@@ -39,7 +39,7 @@ export function Mentions() {
   return (
     <section id="mentions" className="relative scroll-mt-20 py-24 sm:py-28">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
-        <SectionHeading index="05" eyebrow="Also" title="Worth a mention." />
+        <SectionHeading index="05" eyebrow="Recognition" title="Awards, roles and a go-kart." />
         <div className="mt-12 grid gap-4 lg:grid-cols-2 lg:gap-6">
           <Reveal className="flex">
             <CompactEntry entry={ASPHALT} />

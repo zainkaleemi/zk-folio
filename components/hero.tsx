@@ -6,20 +6,8 @@ import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
 
 const CALLOUTS = [
   { k: 'CSWP', v: 'Certified SolidWorks Professional', pos: 'left-[3%] top-[76%]', depth: '-14px', delay: '0.9s' },
-  {
-    k: 'ABU Robocon',
-    v: 'Mechanical Head · Team Robocon MJCET',
-    pos: '-right-[10%] top-[24%]',
-    depth: '-20px',
-    delay: '1.05s',
-  },
-  {
-    k: 'SAE BAJA',
-    v: 'Vehicle Design Engineer · Team MudBrothers',
-    pos: '-right-[6%] top-[60%]',
-    depth: '-10px',
-    delay: '1.2s',
-  },
+  { k: 'ABU Robocon', v: 'Mechanical Head', pos: '-right-[16%] top-[22%]', depth: '-20px', delay: '1.05s' },
+  { k: 'SAE BAJA', v: 'Vehicle Design Engineer', pos: '-right-[12%] top-[58%]', depth: '-10px', delay: '1.2s' },
 ]
 
 /** Concentric drafting rings that sit behind the portrait. */
@@ -142,7 +130,7 @@ export function Hero() {
         <div className="z-10 order-2 flex flex-col justify-end pb-10 lg:order-1 lg:pb-24">
           <div className="animate-rise flex items-center gap-3" style={{ animationDelay: '0.3s' }}>
             <span className="animate-pulse-ring h-2 w-2 rounded-full bg-accent" aria-hidden />
-            <span className="mono-label text-muted-foreground">Robotics · Automotive · R&amp;D</span>
+            <span className="mono-label text-muted-foreground">Mechanical Engineer · Hyderabad</span>
           </div>
           <h1
             className="display animate-rise mt-5 text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.95]"
@@ -157,7 +145,8 @@ export function Hero() {
             className="animate-rise mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
             style={{ animationDelay: '0.5s' }}
           >
-            Robots for ABU Robocon and off-road vehicles for SAE BAJA, from CAD and FEA to the competition floor.
+            I design robots for ABU Robocon and off-road vehicles for SAE BAJA, then stay with them through the welding,
+            the wiring and the first failed test run.
           </p>
           <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: '0.6s' }}>
             <a
@@ -223,9 +212,9 @@ export function Hero() {
         <div className="z-10 order-3 hidden flex-col items-end justify-end pb-24 text-right lg:flex">
           <dl className="animate-rise space-y-6" style={{ animationDelay: '0.7s' }}>
             {[
-              ['Robotics', 'Mechanical Head · ABU Robocon'],
-              ['Automotive', 'Vehicle Design · SAE BAJA'],
               ['Studying', 'B.E. Mechanical · MJCET ’28'],
+              ['Toolkit', 'SolidWorks · FEA · Fabrication'],
+              ['Open to', 'Internships & research'],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="mono-label text-[0.6rem] text-accent">{k}</dt>

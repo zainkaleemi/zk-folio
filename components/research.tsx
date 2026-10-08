@@ -10,9 +10,10 @@ export function Research() {
         <SectionHeading
           index="02"
           eyebrow="Research & development"
+          intro="Two backed R&D projects, both built, not just rendered: one works crop rows, the other is worn."
           title={
             <>
-              Robots for the <span className="serif-accent text-gradient">field</span>, and for people.
+              Research that leaves <span className="serif-accent text-gradient">the lab.</span>
             </>
           }
         />

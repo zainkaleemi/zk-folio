@@ -8,7 +8,12 @@ export function Internship() {
   return (
     <section id={e.id} className="relative scroll-mt-20 py-24 sm:py-28">
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
-        <SectionHeading index="03" eyebrow="Internship" title={e.title} />
+        <SectionHeading
+          index="03"
+          eyebrow="Internship"
+          title={e.title}
+          intro="Two months on the electric side of automotive engineering."
+        />
         <Reveal className="edge-glow glass mt-12 grid gap-8 rounded-[1.75rem] p-7 sm:p-10 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-12">
           <span className="grid h-16 w-16 place-items-center rounded-2xl bg-accent/15 text-accent">
             <BatteryCharging className="h-8 w-8" strokeWidth={1.5} />
