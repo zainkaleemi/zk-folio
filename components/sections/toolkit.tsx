@@ -13,8 +13,8 @@ import {
   type SimpleIcon,
 } from 'simple-icons'
 import { SKILLS } from '@/lib/content'
-import { Reveal } from '@/components/reveal'
-import { SectionHeading } from '@/components/section-heading'
+import { Reveal } from '@/components/ui/reveal'
+import { SectionHeading } from '@/components/ui/section-heading'
 
 const BRANDS: Record<string, SimpleIcon> = {
   solidworks: siDassaultsystemes,

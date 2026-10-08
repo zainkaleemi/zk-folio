@@ -1,7 +1,7 @@
 import { BatteryCharging } from 'lucide-react'
 import { INTERNSHIP } from '@/lib/content'
-import { Reveal } from '@/components/reveal'
-import { SectionHeading } from '@/components/section-heading'
+import { Reveal } from '@/components/ui/reveal'
+import { SectionHeading } from '@/components/ui/section-heading'
 
 export function Internship() {
   const e = INTERNSHIP

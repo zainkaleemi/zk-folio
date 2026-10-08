@@ -1,6 +1,6 @@
 import { RESEARCH } from '@/lib/content'
-import { SectionHeading } from '@/components/section-heading'
-import { WorkEntry } from '@/components/work-entry'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { WorkEntry } from '@/components/ui/work-entry'
 
 export function Research() {
   return (

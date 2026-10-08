@@ -1,54 +1,70 @@
 # zk-folio
 
-Zain Kaleemi's engineering portfolio, built with Next.js 16, Tailwind CSS v4 and
-[`<model-viewer>`](https://modelviewer.dev) for the interactive CAD.
+Engineering portfolio of **Zain Kaleemi**: ABU Robocon, SAE BAJA and R&D work, with interactive 3D CAD
+models. Live at [zk-folio-ac.vercel.app](https://zk-folio-ac.vercel.app).
+
+Built with Next.js 16, React 19, Tailwind CSS v4 and [`<model-viewer>`](https://modelviewer.dev).
 
 ```bash
 pnpm install
-pnpm dev        # http://localhost:3000
-pnpm build
+pnpm dev          # http://localhost:3000
+pnpm build        # production build
+pnpm typecheck
+pnpm format       # Prettier
+```
+
+## Structure
+
+```
+app/                    layout, page, global styles, favicon
+components/
+  layout/               navbar, custom cursor, scroll progress
+  sections/             one file per page section, in page order
+  ui/                   shared pieces: CAD viewer, galleries, lightbox, reveal
+lib/
+  content.ts            all text, media and CAD lists (edit this)
+  links.ts              email, LinkedIn, résumé
+public/
+  assets/<subject>/     photos and video, one folder per team or project
+  models/               compressed .glb CAD models
+  draco/                self-hosted Draco decoder for the models
+  Zain_Kaleemi_Resume.pdf
+scripts/
+  optimize-models.mjs   compresses SolidWorks .glb exports
+  resume/               source and build script for the résumé PDF
+types/                  JSX types for <model-viewer>
 ```
 
 ## Editing content
 
-All the text, media and CAD lists live in **`lib/content.ts`**. Each experience or
-project entry has:
+Everything shown on the page lives in **`lib/content.ts`**, in priority order: the two teams, R&D, the
+internship, then awards and leadership. Each entry can have:
 
-- `cad`: interactive 3D models shown next to the text (several models get tabs)
-- `media`: the photo/video gallery under the entry. `span: 'wide' | 'tall' | 'big'`
-  controls the tile size
+- `cad`: interactive 3D models next to the text (several models get tabs)
+- `media`: the photo/video gallery under the entry; `span: 'wide' | 'tall' | 'big'` sets the tile size
+- `feature`: one portrait video or photo beside the text
 
-To add photos (for example more SAE BAJA media), put the files in
-`public/assets/baja/` and add a line to the `media` array of the `mudbrothers`
-entry. Prefer `.webp` or `.jpg` around 1600px wide; phone photos straight off the
-camera are 4–8 MB each and slow the page down.
+To add photos, put them in `public/assets/<subject>/` and add a line to that entry's `media`. Prefer
+`.webp` around 1600px wide; photos straight off a phone are 4–8 MB each and slow the page down.
 
-## Adding CAD models (and the 30 MB problem)
+## Adding CAD models
 
-SolidWorks `.glb` exports are big (10–15 MB each) because they store raw,
-uncompressed geometry. They hit GitHub's 25 MB upload limit quickly and make the page slow.
-Don't upload them as they are. Compress them first:
+SolidWorks `.glb` exports are large (10–45 MB) because the geometry is uncompressed. Compress them first:
 
-1. Export the assembly from SolidWorks as `.glb`.
-2. Put the raw files in `cad-raw/` at the repo root (this folder is git-ignored).
-3. Run `pnpm models:optimize`.
-4. The compressed versions are written to `public/models/` with the same file name.
-   Commit those, then reference them from `lib/content.ts`, for example
-   `{ src: '/models/exoskeleton.glb', label: 'Exoskeleton', caption: '…' }`.
+1. Export from SolidWorks as `.glb` and put the files in `cad-raw/` (git-ignored).
+2. Run `pnpm models:optimize`. Compressed copies are written to `public/models/` with the same name.
+3. Reference them from `lib/content.ts`, e.g. `{ src: '/models/part.glb', label: '…', caption: '…' }`.
+   If a model appears lying down, add `orientation: '0deg -90deg 0deg'`.
 
-This uses Draco compression plus very light mesh simplification. The current
-models went from about 50 MB in total to about 3.3 MB, with no visible
-difference. The Draco decoder is served from `public/draco/`, so the viewer has no
-third-party CDN dependency.
+This uses Draco compression with very light simplification. The current models went from about 96 MB to
+about 3.9 MB with no visible difference.
 
-If a single model is still huge after compression (for example a full assembly with
-fasteners), suppress hardware and tiny parts in SolidWorks before exporting.
+Files too big to upload elsewhere can be attached to a GitHub Release on this repo (up to 2 GB each).
 
 ## Résumé PDF
 
-The downloadable résumé (`public/Zain_Kaleemi_Resume.pdf`) is generated from
-`scripts/resume/resume.html`, a public-safe copy with no home addresses or phone number.
-Edit the HTML, then run:
+`public/Zain_Kaleemi_Resume.pdf` is generated from `scripts/resume/resume.html`, a public copy with no
+home addresses or phone number. Edit the HTML, then:
 
 ```bash
 npx playwright install chromium   # first time only

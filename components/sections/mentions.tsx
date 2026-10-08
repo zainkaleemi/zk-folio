@@ -1,8 +1,8 @@
 import { Trophy, Users } from 'lucide-react'
 import { ASPHALT, AWARDS, LEADERSHIP } from '@/lib/content'
-import { Reveal } from '@/components/reveal'
-import { SectionHeading } from '@/components/section-heading'
-import { CompactEntry } from '@/components/work-entry'
+import { Reveal } from '@/components/ui/reveal'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { CompactEntry } from '@/components/ui/work-entry'
 
 function List({
   icon: Icon,

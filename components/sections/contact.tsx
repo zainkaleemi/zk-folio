@@ -1,6 +1,6 @@
 import { ArrowUpRight, FileText } from 'lucide-react'
 import { EMAIL, EXTERNAL_LINK_PROPS, LINKEDIN_URL, RESUME_FILENAME, RESUME_URL } from '@/lib/links'
-import { Reveal } from '@/components/reveal'
+import { Reveal } from '@/components/ui/reveal'
 
 export function Contact() {
   return (

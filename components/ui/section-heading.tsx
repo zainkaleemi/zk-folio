@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Reveal } from '@/components/reveal'
+import { Reveal } from '@/components/ui/reveal'
 
 export function SectionHeading({
   index,

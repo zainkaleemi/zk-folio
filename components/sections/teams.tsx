@@ -1,8 +1,8 @@
 import { ArrowDownRight } from 'lucide-react'
 import { TEAMS } from '@/lib/content'
-import { Reveal } from '@/components/reveal'
-import { SectionHeading } from '@/components/section-heading'
-import { WorkEntry } from '@/components/work-entry'
+import { Reveal } from '@/components/ui/reveal'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { WorkEntry } from '@/components/ui/work-entry'
 
 /** The two flagship teams, side by side and then as equal-weight chapters. */
 export function Teams() {

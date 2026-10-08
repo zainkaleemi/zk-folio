@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,13 +7,11 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-surface-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-ice: var(--ice);
-  --color-steel: var(--ice);
   --color-border: var(--border);
   --color-hairline: var(--hairline);
   --color-ring: var(--ring);
@@ -166,7 +163,9 @@ body::after {
     transparent 65%,
     color-mix(in oklch, var(--ice) 50%, transparent)
   );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.45;
@@ -179,7 +178,8 @@ body::after {
 }
 
 .blueprint {
-  background-image: linear-gradient(to right, color-mix(in oklch, var(--ice) 9%, transparent) 1px, transparent 1px),
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--ice) 9%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklch, var(--ice) 9%, transparent) 1px, transparent 1px);
   background-size: 56px 56px;
 }
@@ -197,7 +197,8 @@ body::after {
     linear-gradient(180deg, var(--surface-2), var(--background));
 }
 .cad-stage-floor {
-  background-image: linear-gradient(to right, color-mix(in oklch, var(--foreground) 10%, transparent) 1px, transparent 1px),
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--foreground) 10%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 10%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
   transform: perspective(500px) rotateX(62deg);
@@ -213,7 +214,9 @@ body::after {
   opacity: 0;
   transform: translateY(26px);
   filter: blur(6px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.is-visible {
@@ -299,10 +302,12 @@ body::after {
 
 .hero-portrait {
   /* Feather the bottom and the cropped shoulders so the cut-out blends in */
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 97%),
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 70%, transparent 97%),
     linear-gradient(to right, transparent 4%, #000 22%, #000 78%, transparent 96%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, #000 70%, transparent 97%),
+  mask-image:
+    linear-gradient(to bottom, #000 70%, transparent 97%),
     linear-gradient(to right, transparent 4%, #000 22%, #000 78%, transparent 96%);
   mask-composite: intersect;
 }
@@ -321,26 +326,6 @@ body::after {
 .media-zoom:hover img,
 .media-zoom:hover video {
   transform: scale(1.045);
-}
-
-.link-underline {
-  position: relative;
-}
-.link-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  height: 1px;
-  width: 100%;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
 }
 
 /* ------------------------------------------------------------------ */
@@ -377,8 +362,12 @@ body::after {
   border-radius: 9999px;
   border: 1px solid color-mix(in oklch, var(--foreground) 35%, transparent);
   opacity: 0;
-  transition: opacity 0.3s ease, width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    height 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    opacity 0.3s ease,
+    width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background-color 0.25s ease;
   will-change: transform;
 }
 

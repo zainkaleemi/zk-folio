@@ -110,7 +110,10 @@ export function Navbar() {
       </div>
 
       {open && (
-        <nav className="mx-auto mt-2 max-w-[1600px] rounded-3xl border border-hairline bg-background/95 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl md:hidden" aria-label="Sections">
+        <nav
+          className="mx-auto mt-2 max-w-[1600px] rounded-3xl border border-hairline bg-background/95 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl md:hidden"
+          aria-label="Sections"
+        >
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}

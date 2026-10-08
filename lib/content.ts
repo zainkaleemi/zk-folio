@@ -74,7 +74,7 @@ export const TEAMS: Entry[] = [
     period: 'Nov 2024 — Present',
     location: 'MJCET, Hyderabad',
     discipline: 'Robotics',
-    cover: '/assets/cad-01.webp',
+    cover: '/assets/robocon/r1-cad.webp',
     facts: [
       { label: 'Role', value: 'Mechanical Head' },
       { label: 'Competition', value: 'ABU Robocon' },
@@ -103,20 +103,20 @@ export const TEAMS: Entry[] = [
     media: [
       {
         type: 'video',
-        src: '/assets/r1-demonstration.mp4',
-        poster: '/assets/cad-01.webp',
+        src: '/assets/robocon/r1-demonstration.mp4',
+        poster: '/assets/robocon/r1-cad.webp',
         caption: 'R1 prototype testing, open demonstration',
         span: 'big',
       },
       {
         type: 'image',
-        src: '/assets/cad-01.webp',
+        src: '/assets/robocon/r1-cad.webp',
         alt: 'CAD render of the R1 robot',
         caption: 'R1 · CAD assembly',
       },
       {
         type: 'image',
-        src: '/assets/cad-02.webp',
+        src: '/assets/robocon/r2-cad.webp',
         alt: 'CAD render of the R2 robot',
         caption: 'R2 · CAD assembly',
       },
@@ -209,21 +209,21 @@ export const ASPHALT: Entry = {
   media: [
     {
       type: 'image',
-      src: '/assets/kart-01.webp',
+      src: '/assets/asphalt/kart.webp',
       alt: 'Side profile of the number 12 go-kart parked outdoors on wet pavement',
       caption: 'Kart overview',
       span: 'wide',
     },
     {
       type: 'image',
-      src: '/assets/award-ceremony.webp',
+      src: '/assets/asphalt/award-ceremony.webp',
       alt: 'Receiving a certificate and memento at the SAE MJCET Summit 2025 award ceremony',
       caption: 'SAE MJCET Summit 2025 · Recognition',
       position: 'center 20%',
     },
     {
       type: 'image',
-      src: '/assets/team.webp',
+      src: '/assets/asphalt/team.webp',
       alt: 'Team Asphalt crew and mentors around the flame-liveried go-kart',
       caption: 'Team Asphalt crew',
     },

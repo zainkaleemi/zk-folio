@@ -1,9 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
-import { Cursor } from '@/components/cursor'
-import { LightboxProvider } from '@/components/lightbox'
-import { ScrollProgress } from '@/components/scroll-progress'
+import { Cursor } from '@/components/layout/cursor'
+import { LightboxProvider } from '@/components/ui/lightbox'
+import { ScrollProgress } from '@/components/layout/scroll-progress'
 import './globals.css'
 
 const inter = Inter({

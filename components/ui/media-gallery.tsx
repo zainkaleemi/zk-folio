@@ -1,7 +1,7 @@
 import { Play } from 'lucide-react'
 import type { MediaItem } from '@/lib/content'
-import { LazyVideo } from '@/components/lazy-video'
-import { MediaFrame } from '@/components/media-frame'
+import { LazyVideo } from '@/components/ui/lazy-video'
+import { MediaFrame } from '@/components/ui/media-frame'
 import { cn } from '@/lib/utils'
 
 const CELLS = { wide: 2, tall: 2, big: 4 } as const

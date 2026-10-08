@@ -1,9 +1,9 @@
 import { ArrowUpRight, BookOpen } from 'lucide-react'
 import type { Entry } from '@/lib/content'
 import { EXTERNAL_LINK_PROPS } from '@/lib/links'
-import { CadViewer } from '@/components/cad-viewer'
-import { MediaGallery } from '@/components/media-gallery'
-import { Reveal } from '@/components/reveal'
+import { CadViewer } from '@/components/ui/cad-viewer'
+import { MediaGallery } from '@/components/ui/media-gallery'
+import { Reveal } from '@/components/ui/reveal'
 import { cn } from '@/lib/utils'
 
 function Details({ entry }: { entry: Entry }) {
@@ -82,7 +82,6 @@ function Details({ entry }: { entry: Entry }) {
           <MediaGallery items={[{ ...entry.feature, span: undefined }]} portrait />
         </figure>
       )}
-
     </div>
   )
 }

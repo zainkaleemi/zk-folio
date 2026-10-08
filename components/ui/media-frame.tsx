@@ -3,7 +3,7 @@
 import type { KeyboardEvent, ReactNode } from 'react'
 import { Expand } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useLightbox, type LightboxMedia } from '@/components/lightbox'
+import { useLightbox, type LightboxMedia } from '@/components/ui/lightbox'
 
 export function MediaFrame({
   media,
@@ -22,8 +22,7 @@ export function MediaFrame({
 }) {
   const { open } = useLightbox()
 
-  const isDesktopViewport = () =>
-    typeof window !== 'undefined' && window.matchMedia('(min-width: 640px)').matches
+  const isDesktopViewport = () => typeof window !== 'undefined' && window.matchMedia('(min-width: 640px)').matches
 
   const handleOpen = () => {
     if (desktopOnly && !isDesktopViewport()) return
@@ -37,16 +36,11 @@ export function MediaFrame({
     }
   }
 
-  const description =
-    media.type === 'image' ? media.alt : media.label ?? 'video demonstration'
+  const description = media.type === 'image' ? media.alt : (media.label ?? 'video demonstration')
 
   return (
     <div
-      className={cn(
-        'group relative',
-        desktopOnly ? 'sm:cursor-zoom-in' : 'cursor-zoom-in',
-        className,
-      )}
+      className={cn('group relative', desktopOnly ? 'sm:cursor-zoom-in' : 'cursor-zoom-in', className)}
       role="button"
       tabIndex={0}
       data-cursor="hover"
