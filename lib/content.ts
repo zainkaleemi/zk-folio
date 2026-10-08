@@ -332,7 +332,7 @@ export const AWARDS = [
 
 export const LEADERSHIP = [
   { role: 'Technical Head', org: 'Club Optimus MJCET', date: 'Sep 2026 — Present' },
-  { role: 'Social Media Director', org: 'IEEE IEOM MJCET', date: 'Sep 2026 — Present' },
+  { role: 'Social Media Director', org: 'IEOM MJCET', date: 'Sep 2026 — Present' },
 ]
 
 // Mirrors the Skills section of the résumé. Icon keys map to logos in components/toolkit.tsx.
