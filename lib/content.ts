@@ -70,7 +70,7 @@ export const TEAMS: Entry[] = [
     kicker: 'ABU Robocon',
     title: 'Team Robocon MJCET',
     role: 'Mechanical Head',
-    roleNote: 'Promoted twice: Design Engineer → Senior Design Engineer → Mechanical Head',
+    roleNote: 'Promoted from Design Engineer and Senior Design Engineer',
     period: 'Nov 2024 — Present',
     location: 'MJCET, Hyderabad',
     discipline: 'Robotics',
@@ -78,26 +78,26 @@ export const TEAMS: Entry[] = [
     facts: [
       { label: 'Role', value: 'Mechanical Head' },
       { label: 'Competition', value: 'ABU Robocon' },
-      { label: 'Focus', value: 'Mechanisms & robot structures' },
+      { label: 'Focus', value: 'Robot mechanisms' },
     ],
     summary:
-      'I lead the mechanical side of our ABU Robocon robots: what the mechanisms are, how they get built, and whether they survive the arena.',
+      'Leading the mechanical team for the ABU Robocon robot, from design and prototyping to fabrication and assembly.',
     bullets: [
-      'Mechanisms designed for kinematics, strength, weight and reliability, then refined through test runs.',
-      'Robots taken from CAD and drawings through fabrication and assembly.',
-      'Integration with the electrical and programming teams, so the robot works as one machine.',
+      'Design robot mechanisms for kinematics, strength, weight and reliability, iterating through testing.',
+      'Produce 3D CAD models and drawings.',
+      'Coordinate integration with the electrical and programming teams.',
     ],
     tags: ['Mechanism design', 'SolidWorks', 'Prototyping', 'Fabrication', 'Integration'],
     cad: [
       {
         src: '/models/robocon-r1.glb',
         label: 'R1 · ABU Robocon 2026',
-        caption: 'R1: twin vertical lifts and a manipulator on an octagonal omni-wheel base',
+        caption: 'R1 robot assembly',
       },
       {
         src: '/models/robocon-prototype.glb',
-        label: 'Lift prototype',
-        caption: 'Belt-driven lift and gripper prototype on an omni-wheel base',
+        label: 'Prototype',
+        caption: 'Prototype assembly',
       },
     ],
     media: [
@@ -111,26 +111,26 @@ export const TEAMS: Entry[] = [
       {
         type: 'image',
         src: '/assets/cad-01.webp',
-        alt: 'CAD render of the R1 robot with dual vertical lift columns over the competition field',
+        alt: 'CAD render of the R1 robot',
         caption: 'R1 · CAD assembly',
       },
       {
         type: 'image',
         src: '/assets/cad-02.webp',
-        alt: 'CAD render of the R2 robot showing the drive base, roller wheels and structural framing',
+        alt: 'CAD render of the R2 robot',
         caption: 'R2 · CAD assembly',
       },
       {
         type: 'image',
         src: '/assets/robocon/prototype-01.webp',
-        alt: 'CAD of an early Robocon lift mechanism prototype on a triangular frame',
-        caption: 'Prototype 01 · Lift mechanism',
+        alt: 'CAD render of Robocon prototype 01',
+        caption: 'Prototype 01 · CAD',
       },
       {
         type: 'image',
         src: '/assets/robocon/prototype-02.webp',
-        alt: 'CAD of the belt-driven Robocon lift prototype with gripper arm',
-        caption: 'Prototype 02 · Belt-driven lift',
+        alt: 'CAD render of Robocon prototype 02',
+        caption: 'Prototype 02 · CAD',
       },
     ],
   },
@@ -146,36 +146,35 @@ export const TEAMS: Entry[] = [
     facts: [
       { label: 'Role', value: 'Vehicle Design Engineer' },
       { label: 'Competition', value: 'SAE BAJA' },
-      { label: 'Focus', value: 'Roll cage & vehicle subsystems' },
+      { label: 'Focus', value: 'Parts, assemblies & subsystems' },
     ],
-    summary:
-      'I design parts and assemblies for our SAE BAJA buggy, a single-seat off-road vehicle built to take jumps, rocks and mud.',
+    summary: 'Designing parts and assemblies in CAD for the team’s SAE BAJA off-road vehicle.',
     bullets: [
-      'Subsystem design and integration, trading weight against strength and what the shop can fabricate.',
-      'Design revisions driven by feedback from manufacturing and testing.',
-      'On the shop floor for fabrication, assembly and test runs.',
+      'Work on subsystem design and integration, balancing weight, reliability and what can be fabricated.',
+      'Work with the manufacturing and testing teams to revise designs.',
+      'Help with fabrication, assembly and testing.',
     ],
-    tags: ['Vehicle design', 'Roll cage', 'Subsystems', 'DFM', 'Testing'],
+    tags: ['Vehicle design', 'CAD', 'Subsystems', 'Fabrication', 'Testing'],
     cad: [
       {
         src: '/models/sae-baja.glb',
-        label: 'BAJA vehicle',
-        caption: 'Roll cage with engine and drivetrain packaged inside',
+        label: 'SAE BAJA vehicle',
+        caption: 'SAE BAJA vehicle assembly',
       },
     ],
     media: [
       {
         type: 'image',
         src: '/assets/baja/zain-mudbrothers.webp',
-        alt: 'Zain in a black racing suit sitting in a red bucket seat in the workshop, helmet beside him and the buggy behind',
-        caption: 'In the shop with the MudBrothers buggy',
+        alt: 'Zain in a racing suit in the Team MudBrothers workshop',
+        caption: 'Team MudBrothers workshop',
         span: 'tall',
       },
       {
         type: 'image',
         src: '/assets/baja/baja-chassis.webp',
-        alt: 'CAD render of the SAE BAJA roll-cage chassis with engine',
-        caption: 'Roll-cage chassis · CAD',
+        alt: 'CAD render of the SAE BAJA chassis',
+        caption: 'Chassis · CAD',
         span: 'big',
       },
     ],
@@ -191,7 +190,7 @@ export const INTERNSHIP: Entry = {
   period: 'Jul — Aug 2026',
   location: 'Hybrid',
   summary:
-    'EV architecture, battery packs, BMS and charging systems, with hands-on MATLAB/Simulink and EV digital twins, plus industry visits and expert sessions.',
+    'Hybrid internship covering EV architecture, battery packs, Battery Management Systems (BMS), charging systems, MATLAB/Simulink and EV digital twins. Attended industry visits and expert sessions on EV development and manufacturing.',
   bullets: [],
   tags: ['EV architecture', 'BMS', 'MATLAB/Simulink', 'Digital twins'],
 }
@@ -204,7 +203,7 @@ export const ASPHALT: Entry = {
   period: '2025',
   location: 'Indian Karting Race',
   badge: 'AIR 10',
-  summary: 'Built and raced a go-kart with Team Asphalt, finishing All India Rank 10 at the Indian Karting Race 2025.',
+  summary: 'All India Rank 10 at the IKR Go-Kart Competition with Team Asphalt MJCET.',
   bullets: [],
   tags: ['Automotive', 'Competition', 'Fabrication', 'Teamwork'],
   media: [
@@ -239,13 +238,12 @@ export const RESEARCH: Entry[] = [
     title: 'S.A.F.L.',
     role: 'Smart Agri Four-Legged Bot · Undergraduate Researcher',
     period: 'Nov 2025 — Present',
-    summary:
-      'A semi-autonomous four-legged robot that finds weeds and measures soil health in the field, so farmers don’t have to walk every row.',
+    summary: 'Mechanical design of a semi-autonomous agricultural quadruped.',
     bullets: [
-      'Mechanical design: CAD assemblies, reinforced steel chassis and articulated legs.',
-      'FEA in SolidWorks on critical components, validated to a minimum safety factor of 2.04.',
-      'Mechanical interfaces for actuators, soil sensing, cameras and the Jetson Nano.',
-      'Prototype build and field trials, including 4–6 hour deployments.',
+      'Contributed to the mechanical design: 3D CAD assemblies, reinforced steel chassis and articulated legs.',
+      'Performed FEA in SolidWorks on critical components; structure validated to a minimum safety factor of 2.04.',
+      'Designed mechanical interfaces for the actuators, soil sensing, cameras and onboard computer; assisted with Jetson Nano edge AI and sensor acquisition.',
+      'Built and tested the prototype in field trials, including 4–6 hour field deployments.',
     ],
     tags: ['FEA', 'SolidWorks', 'Jetson Nano', 'Field testing'],
     stats: [
@@ -261,22 +259,22 @@ export const RESEARCH: Entry[] = [
       {
         src: '/models/safl-quadruped.glb',
         label: 'S.A.F.L. quadruped',
-        caption: 'Full assembly: chassis, articulated wheel-legs and electronics bay',
+        caption: 'S.A.F.L. assembly',
       },
     ],
     media: [
       {
         type: 'image',
         src: '/assets/safl/safl-team.webp',
-        alt: 'Three engineers standing behind the four-legged agricultural robot with yellow articulated legs',
+        alt: 'The team with the S.A.F.L. quadruped prototype',
         caption: 'Development prototype',
         span: 'tall',
       },
       {
         type: 'image',
         src: '/assets/safl/safl-lab.webp',
-        alt: 'The S.A.F.L. quadruped prototype on a lab table with exposed wiring',
-        caption: 'Prototype on the bench',
+        alt: 'The S.A.F.L. quadruped prototype',
+        caption: 'Prototype',
         span: 'big',
       },
     ],
@@ -285,21 +283,21 @@ export const RESEARCH: Entry[] = [
     id: 'exoskeleton',
     kicker: 'YUKTI Innovation Challenge',
     title: 'Wearable Exoskeleton',
-    role: 'Mechanical integration',
+    role: 'R&D project',
     period: 'Nov 2025 — Present',
-    summary: 'A wearable, cable-driven assist that takes strain and fatigue out of repetitive manual work.',
+    summary: 'Wearable assist system to reduce strain and fatigue in manual tasks.',
     context:
       'Supported under the YUKTI Innovation Challenge, a national programme by the Ministry of Education’s Innovation Cell (MIC) and AICTE that identifies, mentors and funds student-led prototypes.',
     bullets: [
-      'Mechanical integration and assembly: Dyneema cable, high-torque servos and 3D-printed parts.',
-      'Servo control from a headless Raspberry Pi with a Bus Servo Driver HAT.',
+      'Worked on the mechanical integration and assembly of a rope-driven assist using Dyneema cable, high-torque servos and 3D-printed parts.',
+      'Controlled the servos from a headless Raspberry Pi with a Bus Servo Driver HAT.',
     ],
     tags: ['Wearables', '3D printing', 'Servo control', 'Raspberry Pi'],
     cad: [
       {
         src: '/models/exoskeleton.glb',
         label: 'Exoskeleton',
-        caption: 'Back-mounted actuator housing with cable routing to the thigh cuffs',
+        caption: 'Exoskeleton assembly',
         orientation: '0deg -90deg 0deg',
         angles: '200deg 78deg',
       },
@@ -308,7 +306,7 @@ export const RESEARCH: Entry[] = [
       type: 'video',
       src: '/assets/exo/exo-explained.mp4',
       poster: '/assets/exo/exo-poster.webp',
-      caption: 'The exoskeleton, explained',
+      caption: 'Explainer video',
       autoplay: false,
     },
   },
@@ -334,43 +332,39 @@ export const AWARDS = [
 
 export const LEADERSHIP = [
   { role: 'Technical Head', org: 'Club Optimus MJCET', date: 'Sep 2026 — Present' },
-  { role: 'Social Media Director', org: 'IEOM MJCET', date: 'Sep 2026 — Present' },
+  { role: 'Social Media Director', org: 'IEEE IEOM MJCET', date: 'Sep 2026 — Present' },
 ]
 
-// Icon keys map to logos in components/toolkit.tsx.
+// Mirrors the Skills section of the résumé. Icon keys map to logos in components/toolkit.tsx.
 export const SKILLS = [
   {
     group: 'CAD & Analysis',
     items: [
-      { name: 'SolidWorks · CSWP', icon: 'solidworks' },
+      { name: 'SolidWorks (CSWP)', icon: 'solidworks' },
       { name: 'AutoCAD', icon: 'autocad' },
       { name: 'FEA', icon: 'fea' },
-      { name: 'Ansys Workbench', icon: 'ansys' },
-      { name: 'MATLAB / Simulink', icon: 'matlab' },
     ],
   },
   {
-    group: 'Fabrication',
+    group: 'Fabrication & Systems',
     items: [
-      { name: '3D Printing', icon: 'printing' },
-      { name: 'Rapid Prototyping', icon: 'prototyping' },
+      { name: '3D Printing (PLA/PETG)', icon: 'printing' },
       { name: 'Mechanical Assembly', icon: 'assembly' },
-      { name: 'CNC', icon: 'cnc' },
+      { name: 'Rapid Prototyping', icon: 'prototyping' },
+      { name: 'Linux (Arch)', icon: 'archlinux' },
     ],
   },
   {
-    group: 'Electronics & Code',
+    group: 'Beginner level',
     items: [
+      { name: 'Ansys Workbench', icon: 'ansys' },
+      { name: 'Git', icon: 'git' },
       { name: 'Jetson Nano', icon: 'nvidia' },
       { name: 'RealSense D435', icon: 'intel' },
       { name: 'Raspberry Pi', icon: 'raspberrypi' },
       { name: 'Arduino', icon: 'arduino' },
       { name: 'Servo Control', icon: 'servo' },
-      { name: 'Python', icon: 'python' },
-      { name: 'C', icon: 'c' },
-      { name: 'Arch Linux', icon: 'archlinux' },
-      { name: 'Git', icon: 'git' },
-      { name: 'GitHub', icon: 'github' },
+      { name: 'CNC', icon: 'cnc' },
     ],
   },
 ]

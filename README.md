@@ -43,3 +43,16 @@ third-party CDN dependency.
 
 If a single model is still huge after compression (for example a full assembly with
 fasteners), suppress hardware and tiny parts in SolidWorks before exporting.
+
+## Résumé PDF
+
+The downloadable résumé (`public/Zain_Kaleemi_Resume.pdf`) is generated from
+`scripts/resume/resume.html`, a public-safe copy with no home addresses or phone number.
+Edit the HTML, then run:
+
+```bash
+npx playwright install chromium   # first time only
+pnpm resume:build
+```
+
+Keep it in step with `lib/content.ts` so the site and the résumé say the same thing.

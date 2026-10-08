@@ -1,5 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
-import { EMAIL, EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
+import { ArrowUpRight, FileText } from 'lucide-react'
+import { EMAIL, EXTERNAL_LINK_PROPS, LINKEDIN_URL, RESUME_FILENAME, RESUME_URL } from '@/lib/links'
 import { Reveal } from '@/components/reveal'
 
 export function Contact() {
@@ -17,7 +17,7 @@ export function Contact() {
             Let&apos;s build <span className="serif-accent text-gradient">something.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Open to internships, research collaborations and anything with moving parts.
+            For internships, research and collaboration, reach me by email or LinkedIn.
           </p>
         </Reveal>
 
@@ -39,6 +39,29 @@ export function Contact() {
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
+        </Reveal>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-[1600px] px-5 sm:px-8 lg:px-12">
+        <Reveal>
+          <a
+            href={RESUME_URL}
+            download={RESUME_FILENAME}
+            className="edge-glow glass group mx-auto flex max-w-2xl items-center justify-between gap-5 rounded-2xl p-5 text-left transition hover:bg-surface sm:p-6"
+          >
+            <span className="flex items-center gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent">
+                <FileText className="h-6 w-6" strokeWidth={1.5} />
+              </span>
+              <span>
+                <span className="block font-display text-lg text-foreground sm:text-xl">Download full résumé</span>
+                <span className="mt-0.5 block text-sm text-muted-foreground">PDF · one page</span>
+              </span>
+            </span>
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-foreground text-background transition group-hover:bg-accent group-hover:text-accent-foreground">
+              <ArrowUpRight className="h-5 w-5 rotate-90" />
+            </span>
+          </a>
         </Reveal>
       </div>
 

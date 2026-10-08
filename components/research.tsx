@@ -10,7 +10,7 @@ export function Research() {
         <SectionHeading
           index="02"
           eyebrow="Research & development"
-          intro="Two backed R&D projects, both built, not just rendered: one works crop rows, the other is worn."
+          intro="S.A.F.L., an institution-funded R&D program, and a wearable exoskeleton supported under the YUKTI Innovation Challenge."
           title={
             <>
               Research that leaves <span className="serif-accent text-gradient">the lab.</span>

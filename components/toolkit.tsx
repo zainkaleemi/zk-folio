@@ -1,17 +1,14 @@
 import type { ComponentType } from 'react'
-import { Boxes, Cog, Drill, Grid3x3, Printer, Sigma, Wrench } from 'lucide-react'
+import { Boxes, Cog, Drill, Grid3x3, Printer, Wrench } from 'lucide-react'
 import {
   siAnsys,
   siArchlinux,
   siArduino,
   siAutocad,
-  siC,
   siDassaultsystemes,
   siGit,
-  siGithub,
   siIntel,
   siNvidia,
-  siPython,
   siRaspberrypi,
   type SimpleIcon,
 } from 'simple-icons'
@@ -27,16 +24,12 @@ const BRANDS: Record<string, SimpleIcon> = {
   intel: siIntel,
   raspberrypi: siRaspberrypi,
   arduino: siArduino,
-  python: siPython,
-  c: siC,
   archlinux: siArchlinux,
   git: siGit,
-  github: siGithub,
 }
 
 const GENERIC: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
   fea: Grid3x3,
-  matlab: Sigma,
   printing: Printer,
   prototyping: Boxes,
   assembly: Wrench,

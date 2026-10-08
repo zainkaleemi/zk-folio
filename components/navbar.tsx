@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { EMAIL } from '@/lib/links'
+import { Download } from 'lucide-react'
+import { EMAIL, RESUME_FILENAME, RESUME_URL } from '@/lib/links'
 import { cn } from '@/lib/utils'
 
 const NAV_ITEMS = [
@@ -70,12 +71,22 @@ export function Navbar() {
           ))}
         </nav>
 
-        <a
-          href={`mailto:${EMAIL}`}
-          className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:brightness-110 md:inline-flex"
-        >
-          Let&apos;s talk
-        </a>
+        <div className="hidden items-center gap-2 lg:flex">
+          <a
+            href={RESUME_URL}
+            download={RESUME_FILENAME}
+            className="inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-2.5 text-sm text-foreground transition hover:border-accent hover:text-accent"
+          >
+            <Download className="h-4 w-4" />
+            Résumé
+          </a>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:brightness-110"
+          >
+            Let&apos;s talk
+          </a>
+        </div>
 
         <button
           type="button"
@@ -99,7 +110,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <nav className="glass mx-auto mt-2 max-w-[1600px] rounded-3xl p-2 md:hidden" aria-label="Sections">
+        <nav className="mx-auto mt-2 max-w-[1600px] rounded-3xl border border-hairline bg-background/95 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl md:hidden" aria-label="Sections">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -110,6 +121,15 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
+          <a
+            href={RESUME_URL}
+            download={RESUME_FILENAME}
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-3 rounded-2xl px-4 py-3.5 font-display text-lg text-accent hover:bg-foreground/5"
+          >
+            <Download className="h-5 w-5" />
+            Download résumé
+          </a>
         </nav>
       )}
     </header>

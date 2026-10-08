@@ -17,7 +17,7 @@ export function Teams() {
               Built to <span className="serif-accent text-gradient">compete.</span>
             </>
           }
-          intro="ABU Robocon, the Asia-Pacific robotics contest, and SAE BAJA, where student teams design, build and race an off-road vehicle. Two very different machines, the same unforgiving deadline."
+          intro="Mechanical design for two competition teams at MJCET: the ABU Robocon robot with Team Robocon, and the SAE BAJA off-road vehicle with Team MudBrothers."
         />
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:gap-6">

@@ -2,16 +2,16 @@
 const ITEMS = [
   'ABU Robocon',
   'SAE BAJA',
-  'Mechanisms',
-  'Roll cage',
-  'Kinematics',
-  'Drivetrain',
-  'Robot structures',
-  'Vehicle dynamics',
+  'Mechanism design',
+  'Vehicle design',
   'SolidWorks',
   'FEA',
+  'AutoCAD',
+  'Rapid prototyping',
+  '3D printing',
+  'Mechanical assembly',
   'Fabrication',
-  'Go-kart',
+  'Field testing',
 ]
 
 export function Marquee() {

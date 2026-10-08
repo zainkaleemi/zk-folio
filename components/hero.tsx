@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ArrowUpRight } from 'lucide-react'
-import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
+import { ArrowUpRight, Download } from 'lucide-react'
+import { EXTERNAL_LINK_PROPS, LINKEDIN_URL, RESUME_FILENAME, RESUME_URL } from '@/lib/links'
 
 const CALLOUTS = [
   { k: 'CSWP', v: 'Certified SolidWorks Professional', pos: 'left-[3%] top-[76%]', depth: '-14px', delay: '0.9s' },
@@ -145,24 +145,32 @@ export function Hero() {
             className="animate-rise mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
             style={{ animationDelay: '0.5s' }}
           >
-            I design robots for ABU Robocon and off-road vehicles for SAE BAJA, then stay with them through the welding,
-            the wiring and the first failed test run.
+            Mechanical Head at Team Robocon MJCET and Vehicle Design Engineer at Team MudBrothers (SAE BAJA).
           </p>
-          <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: '0.6s' }}>
+          <div className="animate-rise mt-8 flex flex-wrap gap-2.5" style={{ animationDelay: '0.6s' }}>
             <a
               href="#teams"
-              className="group inline-flex items-center gap-3 rounded-full bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition hover:bg-accent hover:text-accent-foreground"
+              className="group inline-flex items-center gap-3 rounded-full bg-foreground px-5 py-3.5 text-sm font-semibold text-background transition hover:bg-accent hover:text-accent-foreground"
             >
-              Explore the work
+              View work
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+            </a>
+            <a
+              href={RESUME_URL}
+              download={RESUME_FILENAME}
+              className="glass inline-flex items-center gap-3 rounded-full px-5 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent"
+            >
+              Résumé
+              <Download className="h-4 w-4" />
             </a>
             <a
               href={LINKEDIN_URL}
               {...EXTERNAL_LINK_PROPS}
-              className="glass inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent"
+              aria-label="LinkedIn profile"
+              title="LinkedIn"
+              className="glass grid h-[3.25rem] w-[3.25rem] place-items-center rounded-full font-display text-base font-bold text-foreground transition hover:border-accent hover:text-accent"
             >
-              LinkedIn
-              <ArrowUpRight className="h-4 w-4" />
+              in
             </a>
           </div>
         </div>
@@ -213,8 +221,8 @@ export function Hero() {
           <dl className="animate-rise space-y-6" style={{ animationDelay: '0.7s' }}>
             {[
               ['Studying', 'B.E. Mechanical · MJCET ’28'],
-              ['Toolkit', 'SolidWorks · FEA · Fabrication'],
-              ['Open to', 'Internships & research'],
+              ['Toolkit', 'SolidWorks · AutoCAD · FEA'],
+              ['Certified', 'SolidWorks Professional (CSWP)'],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="mono-label text-[0.6rem] text-accent">{k}</dt>
