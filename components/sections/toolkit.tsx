@@ -1,10 +1,11 @@
 import type { ComponentType } from 'react'
-import { Boxes, Cog, Drill, Grid3x3, Printer, Wrench } from 'lucide-react'
+import { Activity, Boxes, Cog, Drill, Grid3x3, Printer, WandSparkles, Wrench } from 'lucide-react'
 import {
-  siAnsys,
   siArchlinux,
   siArduino,
   siAutocad,
+  siClaude,
+  siDavinciresolve,
   siDassaultsystemes,
   siGit,
   siIntel,
@@ -19,7 +20,8 @@ import { SectionHeading } from '@/components/ui/section-heading'
 const BRANDS: Record<string, SimpleIcon> = {
   solidworks: siDassaultsystemes,
   autocad: siAutocad,
-  ansys: siAnsys,
+  claude: siClaude,
+  davinci: siDavinciresolve,
   nvidia: siNvidia,
   intel: siIntel,
   raspberrypi: siRaspberrypi,
@@ -30,6 +32,8 @@ const BRANDS: Record<string, SimpleIcon> = {
 
 const GENERIC: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
   fea: Grid3x3,
+  ansys: Activity,
+  vibecoding: WandSparkles,
   printing: Printer,
   prototyping: Boxes,
   assembly: Wrench,
@@ -37,7 +41,18 @@ const GENERIC: Record<string, ComponentType<{ className?: string; strokeWidth?: 
   servo: Cog,
 }
 
+// Adobe marks aren't in simple-icons; draw the familiar two-letter app tile instead.
+const TILES: Record<string, string> = { premiere: 'Pr' }
+
 function Logo({ icon }: { icon: string }) {
+  const tile = TILES[icon]
+  if (tile) {
+    return (
+      <span className="grid h-7 w-7 place-items-center rounded-[6px] border-[1.5px] border-current font-display text-[0.7rem] font-bold leading-none">
+        {tile}
+      </span>
+    )
+  }
   const brand = BRANDS[icon]
   if (brand) {
     return (
