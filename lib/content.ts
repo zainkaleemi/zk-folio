@@ -18,6 +18,8 @@ export type MediaItem =
       src: string
       poster?: string
       caption: string
+      /** false shows the poster with a play button; the video opens in the lightbox with sound. */
+      autoplay?: boolean
       span?: 'wide' | 'tall' | 'big'
       position?: string
     }
@@ -27,8 +29,10 @@ export type CadModel = {
   src: string
   label: string
   caption: string
-  /** Optional starting camera, model-viewer `camera-orbit` syntax. */
-  orbit?: string
+  /** Starting camera angles, e.g. '215deg 75deg' (theta phi). Distance is set automatically. */
+  angles?: string
+  /** Fix models exported lying down, model-viewer `orientation` syntax: 'roll pitch yaw'. */
+  orientation?: string
 }
 
 export type Entry = {
@@ -51,11 +55,13 @@ export type Entry = {
   /** Flagship teams only: image for the overview card. */
   cover?: string
   link?: { href: string; label: string }
+  /** A single portrait video/photo shown beside the text, e.g. a phone-shot explainer. */
+  feature?: MediaItem
   cad?: CadModel[]
   media?: MediaItem[]
 }
 
-// The two flagship teams. They get identical, equal-weight treatment everywhere.
+// Tier 1: the two flagship teams. Identical, equal-weight treatment everywhere.
 export const TEAMS: Entry[] = [
   {
     id: 'robocon',
@@ -66,24 +72,23 @@ export const TEAMS: Entry[] = [
     period: 'Nov 2024 — Present',
     location: 'MJCET, Hyderabad',
     discipline: 'Robotics',
-    cover: '/assets/cad-01.jpeg',
+    cover: '/assets/cad-01.webp',
     facts: [
       { label: 'Role', value: 'Mechanical Head' },
       { label: 'Competition', value: 'ABU Robocon' },
       { label: 'Focus', value: 'Mechanisms & robot structures' },
     ],
-    summary:
-      'Leading the mechanical team behind the ABU Robocon robots, taking mechanisms from first sketch through CAD, prototyping, fabrication and assembly, and onto the competition field.',
+    summary: 'Leading the mechanical team behind our ABU Robocon robots, from first sketch to the competition field.',
     bullets: [
-      'Lead the mechanical team for the ABU Robocon robot, from design and prototyping to fabrication and assembly.',
-      'Design robot mechanisms for kinematics, strength, weight and reliability, iterating through testing.',
-      'Produce 3D CAD models and drawings; coordinate integration with the electrical and programming teams.',
+      'Mechanism design for kinematics, strength, weight and reliability, iterated through testing.',
+      'Prototyping, fabrication and assembly of the robots.',
+      '3D CAD and drawings; integration with the electrical and programming teams.',
     ],
     tags: ['Mechanism design', 'SolidWorks', 'Prototyping', 'Fabrication', 'Integration'],
     cad: [
       {
         src: '/models/robocon-r1.glb',
-        label: 'R1 · Robocon 2026',
+        label: 'R1 · ABU Robocon 2026',
         caption: 'Full R1 robot assembly with twin vertical lifts and manipulator',
       },
       {
@@ -96,19 +101,19 @@ export const TEAMS: Entry[] = [
       {
         type: 'video',
         src: '/assets/r1-demonstration.mp4',
-        poster: '/assets/cad-01.jpeg',
+        poster: '/assets/cad-01.webp',
         caption: 'R1 prototype testing, open demonstration',
         span: 'big',
       },
       {
         type: 'image',
-        src: '/assets/cad-01.jpeg',
+        src: '/assets/cad-01.webp',
         alt: 'CAD render of the R1 robot with dual vertical lift columns over the competition field',
         caption: 'R1 · CAD assembly',
       },
       {
         type: 'image',
-        src: '/assets/cad-02.jpeg',
+        src: '/assets/cad-02.webp',
         alt: 'CAD render of the R2 robot showing the drive base, roller wheels and structural framing',
         caption: 'R2 · CAD assembly',
       },
@@ -140,12 +145,11 @@ export const TEAMS: Entry[] = [
       { label: 'Competition', value: 'SAE BAJA' },
       { label: 'Focus', value: 'Roll cage & vehicle subsystems' },
     ],
-    summary:
-      'Designing parts and assemblies for the team’s all-terrain SAE BAJA vehicle, where every decision trades weight against reliability and what the shop can actually build.',
+    summary: 'Designing parts and assemblies for our all-terrain SAE BAJA vehicle, from CAD to the dirt track.',
     bullets: [
-      'Design parts and assemblies in CAD for the team’s off-road vehicle.',
-      'Work on subsystem design and integration, balancing weight, reliability and what can be fabricated.',
-      'Work with the manufacturing and testing teams to revise designs; help with fabrication, assembly and testing.',
+      'Subsystem design and integration, balancing weight, reliability and manufacturability.',
+      'Design revisions with the manufacturing and testing teams.',
+      'Hands-on fabrication, assembly and testing of the vehicle.',
     ],
     tags: ['Vehicle design', 'Roll cage', 'Subsystems', 'DFM', 'Testing'],
     cad: [
@@ -174,74 +178,69 @@ export const TEAMS: Entry[] = [
   },
 ]
 
-// Secondary experience, shown as compact cards.
-export const MORE_EXPERIENCE: Entry[] = [
-  {
-    id: 'asphalt',
-    kicker: 'IKR Go-Kart 2025',
-    title: 'Team Asphalt MJCET',
-    period: '2025',
-    location: 'Indian Karting Race',
-    badge: 'AIR 10',
-    summary:
-      'Hands-on automotive engineering in a performance-focused team. The team finished All India Rank 10 at the Indian Karting Race 2025.',
-    bullets: [],
-    tags: ['Automotive', 'Competition', 'Fabrication', 'Teamwork'],
-    media: [
-      {
-        type: 'image',
-        src: '/assets/kart-01.jpeg',
-        alt: 'Side profile of the number 12 go-kart parked outdoors on wet pavement',
-        caption: 'Kart overview',
-        span: 'wide',
-      },
-      {
-        type: 'image',
-        src: '/assets/award-ceremony.jpeg',
-        alt: 'Receiving a certificate and memento at the SAE MJCET Summit 2025 award ceremony',
-        caption: 'SAE MJCET Summit 2025 · Recognition',
-        position: 'center 20%',
-      },
-      {
-        type: 'image',
-        src: '/assets/team.jpeg',
-        alt: 'Team Asphalt crew and mentors around the flame-liveried go-kart',
-        caption: 'Team Asphalt crew',
-      },
-    ],
-  },
-  {
-    id: 'jntuh',
-    kicker: 'Internship',
-    title: 'JNTU Hyderabad',
-    role: 'EV Design, Development & Manufacturing Intern',
-    period: 'Jul — Aug 2026',
-    location: 'Hybrid',
-    summary:
-      'Hybrid internship covering EV architecture, battery packs, battery management systems (BMS), charging systems, MATLAB/Simulink and EV digital twins.',
-    bullets: [
-      'Studied EV architecture, battery packs, BMS and charging systems.',
-      'Worked with MATLAB/Simulink and EV digital twins.',
-      'Attended industry visits and expert sessions on EV development and manufacturing.',
-    ],
-    tags: ['EV architecture', 'BMS', 'MATLAB/Simulink', 'Digital twins'],
-  },
-]
+// Tier 3: internship.
+export const INTERNSHIP: Entry = {
+  id: 'jntuh',
+  kicker: 'Internship',
+  title: 'JNTU Hyderabad',
+  role: 'EV Design, Development & Manufacturing Intern',
+  period: 'Jul — Aug 2026',
+  location: 'Hybrid',
+  summary:
+    'EV architecture, battery packs, BMS and charging systems, with hands-on MATLAB/Simulink and EV digital twins, plus industry visits and expert sessions.',
+  bullets: [],
+  tags: ['EV architecture', 'BMS', 'MATLAB/Simulink', 'Digital twins'],
+}
 
-export const PROJECTS: Entry[] = [
+// Tier 4: worth a mention.
+export const ASPHALT: Entry = {
+  id: 'asphalt',
+  kicker: 'IKR Go-Kart 2025',
+  title: 'Team Asphalt MJCET',
+  period: '2025',
+  location: 'Indian Karting Race',
+  badge: 'AIR 10',
+  summary: 'Go-kart build with the team that finished All India Rank 10 at the Indian Karting Race 2025.',
+  bullets: [],
+  tags: ['Automotive', 'Competition', 'Fabrication', 'Teamwork'],
+  media: [
+    {
+      type: 'image',
+      src: '/assets/kart-01.webp',
+      alt: 'Side profile of the number 12 go-kart parked outdoors on wet pavement',
+      caption: 'Kart overview',
+      span: 'wide',
+    },
+    {
+      type: 'image',
+      src: '/assets/award-ceremony.webp',
+      alt: 'Receiving a certificate and memento at the SAE MJCET Summit 2025 award ceremony',
+      caption: 'SAE MJCET Summit 2025 · Recognition',
+      position: 'center 20%',
+    },
+    {
+      type: 'image',
+      src: '/assets/team.webp',
+      alt: 'Team Asphalt crew and mentors around the flame-liveried go-kart',
+      caption: 'Team Asphalt crew',
+    },
+  ],
+}
+
+// Tier 2: R&D, full chapters with CAD.
+export const RESEARCH: Entry[] = [
   {
     id: 'safl',
     kicker: 'Institution-funded R&D',
     title: 'S.A.F.L.',
     role: 'Smart Agri Four-Legged Bot · Undergraduate Researcher',
     period: 'Nov 2025 — Present',
-    summary:
-      'A semi-autonomous agricultural quadruped for precision farming: automated weed detection and in-situ soil monitoring on a reinforced steel chassis with articulated legs.',
+    summary: 'A semi-autonomous agricultural quadruped for weed detection and in-situ soil monitoring.',
     bullets: [
-      'Mechanical design of the quadruped: 3D CAD assemblies, reinforced steel chassis and articulated legs.',
-      'FEA in SolidWorks on critical components; structure validated to a minimum safety factor of 2.04.',
-      'Designed mechanical interfaces for actuators, soil sensing, cameras and the onboard computer; assisted with Jetson Nano edge AI.',
-      'Built and tested the prototype in field trials, including 4–6 hour field deployments.',
+      'Mechanical design: CAD assemblies, reinforced steel chassis and articulated legs.',
+      'FEA in SolidWorks on critical components, validated to a minimum safety factor of 2.04.',
+      'Mechanical interfaces for actuators, soil sensing, cameras and the Jetson Nano.',
+      'Prototype build and field trials, including 4–6 hour deployments.',
     ],
     tags: ['FEA', 'SolidWorks', 'Jetson Nano', 'Field testing'],
     stats: [
@@ -283,13 +282,28 @@ export const PROJECTS: Entry[] = [
     title: 'Wearable Exoskeleton',
     role: 'R&D project',
     period: 'Nov 2025 — Present',
-    summary:
-      'A wearable assist system that reduces strain and fatigue in manual tasks, using a rope-driven assist built from Dyneema cable, high-torque servos and 3D-printed parts.',
+    summary: 'A wearable, cable-driven assist that reduces strain and fatigue during manual work.',
     bullets: [
-      'Mechanical integration and assembly of the rope-driven assist (Dyneema cable, high-torque servos, 3D-printed parts).',
+      'Mechanical integration and assembly: Dyneema cable, high-torque servos and 3D-printed parts.',
       'Servo control from a headless Raspberry Pi with a Bus Servo Driver HAT.',
     ],
     tags: ['Wearables', '3D printing', 'Servo control', 'Raspberry Pi'],
+    cad: [
+      {
+        src: '/models/exoskeleton.glb',
+        label: 'Exoskeleton',
+        caption: 'Back-mounted actuator housing with cable routing to the thigh cuffs',
+        orientation: '0deg -90deg 0deg',
+        angles: '200deg 78deg',
+      },
+    ],
+    feature: {
+      type: 'video',
+      src: '/assets/exo/exo-explained.mp4',
+      poster: '/assets/exo/exo-poster.webp',
+      caption: 'The exoskeleton, explained',
+      autoplay: false,
+    },
   },
 ]
 
@@ -316,26 +330,40 @@ export const LEADERSHIP = [
   { role: 'Social Media Director', org: 'IEOM MJCET', date: 'Sep 2026 — Present' },
 ]
 
+// Icon keys map to logos in components/toolkit.tsx.
 export const SKILLS = [
   {
     group: 'CAD & Analysis',
-    items: ['SolidWorks (CSWP)', 'AutoCAD', 'FEA'],
-  },
-  {
-    group: 'Fabrication & Systems',
-    items: ['3D printing (PLA/PETG)', 'Mechanical assembly', 'Rapid prototyping', 'Linux (Arch)'],
-  },
-  {
-    group: 'Getting started with',
     items: [
-      'Ansys Workbench',
-      'Git',
-      'Jetson Nano',
-      'RealSense D435',
-      'Raspberry Pi',
-      'Arduino',
-      'Servo control',
-      'CNC',
+      { name: 'SolidWorks · CSWP', icon: 'solidworks' },
+      { name: 'AutoCAD', icon: 'autocad' },
+      { name: 'FEA', icon: 'fea' },
+      { name: 'Ansys Workbench', icon: 'ansys' },
+      { name: 'MATLAB / Simulink', icon: 'matlab' },
+    ],
+  },
+  {
+    group: 'Fabrication',
+    items: [
+      { name: '3D Printing', icon: 'printing' },
+      { name: 'Rapid Prototyping', icon: 'prototyping' },
+      { name: 'Mechanical Assembly', icon: 'assembly' },
+      { name: 'CNC', icon: 'cnc' },
+    ],
+  },
+  {
+    group: 'Electronics & Code',
+    items: [
+      { name: 'Jetson Nano', icon: 'nvidia' },
+      { name: 'RealSense D435', icon: 'intel' },
+      { name: 'Raspberry Pi', icon: 'raspberrypi' },
+      { name: 'Arduino', icon: 'arduino' },
+      { name: 'Servo Control', icon: 'servo' },
+      { name: 'Python', icon: 'python' },
+      { name: 'C', icon: 'c' },
+      { name: 'Arch Linux', icon: 'archlinux' },
+      { name: 'Git', icon: 'git' },
+      { name: 'GitHub', icon: 'github' },
     ],
   },
 ]

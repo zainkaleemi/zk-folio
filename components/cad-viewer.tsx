@@ -20,7 +20,7 @@ function loadModelViewer() {
 }
 
 // The viewer frames models by height, so pull the camera back on tall, narrow stages.
-const defaultOrbit = (narrow: boolean) => `35deg 72deg ${narrow ? '145%' : '120%'}`
+const orbitFor = (model: CadModel, narrow: boolean) => `${model.angles ?? '35deg 72deg'} ${narrow ? '145%' : '120%'}`
 
 function IconButton({ label, onClick, children }: { label: string; onClick: () => void; children: React.ReactNode }) {
   return (
@@ -127,13 +127,19 @@ export function CadViewer({
   const resetView = useCallback(() => {
     const el = viewerRef.current
     if (!el) return
-    el.cameraOrbit = model.orbit ?? defaultOrbit(narrow && !expanded)
+    el.cameraOrbit = orbitFor(model, narrow && !expanded)
     el.cameraTarget = 'auto auto auto'
     el.fieldOfView = 'auto'
     el.resetTurntableRotation?.()
   }, [model, narrow, expanded])
 
-  const zoom = (steps: number) => viewerRef.current?.zoom?.(steps)
+  // model-viewer's own zoom() is a no-op while scroll-zoom is disabled, so move the camera directly.
+  const zoom = (factor: number) => {
+    const el = viewerRef.current
+    if (!el) return
+    const { theta, phi, radius } = el.getCameraOrbit()
+    el.cameraOrbit = `${theta}rad ${phi}rad ${radius * factor}m`
+  }
 
   const pct = Math.round(progress * 100)
   const sizing = cn('aspect-[4/5] w-full sm:aspect-[4/3] lg:aspect-auto lg:h-[min(70vh,620px)]', className)
@@ -182,7 +188,8 @@ export function CadViewer({
               rotation-per-second="16deg"
               interaction-prompt="none"
               disable-zoom={!expanded}
-              camera-orbit={model.orbit ?? defaultOrbit(narrow && !expanded)}
+              camera-orbit={orbitFor(model, narrow && !expanded)}
+              orientation={model.orientation}
               min-camera-orbit="auto auto 5%"
               max-camera-orbit="auto auto 300%"
               shadow-intensity="1.2"
@@ -265,10 +272,10 @@ export function CadViewer({
                   ))}
               </div>
               <div className="pointer-events-auto flex gap-2 pb-1 pr-1">
-                <IconButton label="Zoom in" onClick={() => zoom(2)}>
+                <IconButton label="Zoom in" onClick={() => zoom(0.8)}>
                   <Plus className="h-3.5 w-3.5" />
                 </IconButton>
-                <IconButton label="Zoom out" onClick={() => zoom(-2)}>
+                <IconButton label="Zoom out" onClick={() => zoom(1.25)}>
                   <Minus className="h-3.5 w-3.5" />
                 </IconButton>
               </div>

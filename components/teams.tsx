@@ -17,7 +17,7 @@ export function Teams() {
               Robots and race vehicles, <span className="serif-accent text-gradient">equally.</span>
             </>
           }
-          intro="Two teams, two disciplines, the same process: design it in CAD, build it in the shop, break it in testing, then make it better. Every model below is the real assembly. Drag it to look around."
+          intro="Every model below is the real assembly. Drag it to look around."
         />
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:gap-6">

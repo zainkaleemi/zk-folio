@@ -106,7 +106,6 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
                 controls
                 autoPlay
                 loop
-                muted
                 playsInline
                 className="max-h-[78vh] w-auto max-w-full border border-hairline object-contain sm:max-h-[85vh]"
               />

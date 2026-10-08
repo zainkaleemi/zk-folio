@@ -44,6 +44,12 @@ function Details({ entry }: { entry: Entry }) {
         ))}
       </div>
 
+      {entry.feature && (
+        <figure className="mt-10 w-full max-w-[300px]">
+          <MediaGallery items={[{ ...entry.feature, span: undefined }]} portrait />
+        </figure>
+      )}
+
       {entry.link && (
         <a
           href={entry.link.href}

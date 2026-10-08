@@ -5,10 +5,10 @@ import { EMAIL } from '@/lib/links'
 import { cn } from '@/lib/utils'
 
 const NAV_ITEMS = [
-  { label: 'Robocon', id: 'robocon' },
+  { label: 'ABU Robocon', id: 'robocon' },
   { label: 'SAE BAJA', id: 'mudbrothers' },
-  { label: 'Projects', id: 'projects' },
-  { label: 'Profile', id: 'about' },
+  { label: 'R&D', id: 'research' },
+  { label: 'Toolkit', id: 'toolkit' },
   { label: 'Contact', id: 'contact' },
 ]
 

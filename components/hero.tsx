@@ -6,8 +6,20 @@ import { EXTERNAL_LINK_PROPS, LINKEDIN_URL } from '@/lib/links'
 
 const CALLOUTS = [
   { k: 'CSWP', v: 'Certified SolidWorks Professional', pos: 'left-[3%] top-[76%]', depth: '-14px', delay: '0.9s' },
-  { k: 'AIR 10', v: 'IKR Go-Kart · Team Asphalt', pos: '-right-[10%] top-[24%]', depth: '-20px', delay: '1.05s' },
-  { k: '1st', v: 'AgriTech · MAKEFORHYDERABAD', pos: '-right-[6%] top-[60%]', depth: '-10px', delay: '1.2s' },
+  {
+    k: 'ABU Robocon',
+    v: 'Mechanical Head · Team Robocon MJCET',
+    pos: '-right-[10%] top-[24%]',
+    depth: '-20px',
+    delay: '1.05s',
+  },
+  {
+    k: 'SAE BAJA',
+    v: 'Vehicle Design Engineer · Team MudBrothers',
+    pos: '-right-[6%] top-[60%]',
+    depth: '-10px',
+    delay: '1.2s',
+  },
 ]
 
 /** Concentric drafting rings that sit behind the portrait. */
@@ -145,8 +157,7 @@ export function Hero() {
             className="animate-rise mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
             style={{ animationDelay: '0.5s' }}
           >
-            Mechanical Head at Team Robocon MJCET and Vehicle Design Engineer at Team MudBrothers (SAE BAJA). Robots and
-            race vehicles, from CAD and FEA to the competition floor.
+            Robots for ABU Robocon and off-road vehicles for SAE BAJA, from CAD and FEA to the competition floor.
           </p>
           <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: '0.6s' }}>
             <a
@@ -212,8 +223,8 @@ export function Hero() {
         <div className="z-10 order-3 hidden flex-col items-end justify-end pb-24 text-right lg:flex">
           <dl className="animate-rise space-y-6" style={{ animationDelay: '0.7s' }}>
             {[
-              ['Robotics', 'Mechanical Head · Team Robocon'],
-              ['Automotive', 'Vehicle Design · Team MudBrothers'],
+              ['Robotics', 'Mechanical Head · ABU Robocon'],
+              ['Automotive', 'Vehicle Design · SAE BAJA'],
               ['Studying', 'B.E. Mechanical · MJCET ’28'],
             ].map(([k, v]) => (
               <div key={k}>
@@ -223,7 +234,7 @@ export function Hero() {
             ))}
           </dl>
           <a
-            href="#about"
+            href="#teams"
             className="mono-label group mt-12 flex items-center gap-3 text-[0.6rem] text-muted-foreground hover:text-foreground"
           >
             Scroll
